@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chi siamo — Casa 2.0 · Agenzia Immobiliare a Tivoli</title>
+<meta name="description" content="Dietro ogni compravendita c'è una storia di vita. Conosci Casa 2.0, l'agenzia che dal 1994 custodisce le storie di Tivoli. Founder & Broker: Gael Ceravolo." />
+<link rel="canonical" href="https://www.casaduepuntozero.net/chi-siamo.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:site_name" content="Casa 2.0" />
+<meta property="og:title" content="Chi siamo — Casa 2.0 Agenzia Immobiliare Tivoli dal 1994" />
+<meta property="og:description" content="I volti di Tivoli. Gael Ceravolo e il team Casa 2.0. Mettiamo la nostra faccia su ogni promessa." />
+<meta property="og:image" content="https://www.casaduepuntozero.net/assets/tivoli/tivoli-06.jpg" />
+<meta property="og:url" content="https://www.casaduepuntozero.net/chi-siamo.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#1A2A3C" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="assets/fonts/Zodiak-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Zodiak-VariableItalic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=23">
+
+<style>
+  /* ============================================================
+     CHI SIAMO — animated hero + philosophy + founder card
+     ============================================================ */
+  /* video CINEMATICO full-width (band, non 100vh) */
+  .hero--story{
+    min-height: 90vh;
+  }
+  /* wash/overlay verso il NERO (non più blu) */
+  .hero--story .hero__wash{
+    background: linear-gradient(180deg, rgba(14,17,22,0.34) 0%, rgba(14,17,22,0.22) 45%);
+    mix-blend-mode: normal;
+  }
+  .hero--story .hero__overlay{
+    background:
+      radial-gradient(85% 70% at 50% 42%, rgba(14,17,22,0.18) 0%, rgba(14,17,22,0.62) 100%),
+      linear-gradient(180deg, rgba(14,17,22,0.30) 0%, rgba(14,17,22,0) 30%, rgba(14,17,22,0.88) 100%);
+  }
+  .hero__prefix{
+    display:block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(14px, 1.2vw, 18px);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 14px;
+    min-height: 1.4em;
+  }
+  .hero--story h1{
+    font-size: clamp(64px, 11vw, 150px);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: #fff;
+    text-shadow: 0 10px 60px rgba(0,0,0,0.45);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.04em;
+  }
+  /* parola bianca; cursore a BLOCCO (come nello screenshot) */
+  .hero--story .word .live{
+    -webkit-text-fill-color: #fff;
+  }
+  .hero--story .word .live.emotion{
+    background: linear-gradient(180deg, #FF7E6B 0%, var(--red-accent) 75%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 6px 50px rgba(205,92,92,0.6));
+  }
+
+  /* TRUST PILL BAR (sostituisce la scroll-cue su chi-siamo) */
+  .story-pills{
+    position:absolute; left:50%; bottom:42px; transform:translateX(-50%);
+    z-index:2; display:flex; align-items:center; gap:0;
+    background: rgba(14,17,22,0.55);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius: 100px;
+    padding: 6px 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    opacity:0; animation: pillsIn 900ms 1100ms cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  @keyframes pillsIn{ from{opacity:0; transform:translate(-50%,16px);} to{opacity:1; transform:translate(-50%,0);} }
+  .story-pill{
+    display:inline-flex; align-items:center; gap:9px;
+    padding: 10px 20px;
+    color: rgba(255,255,255,0.9);
+    font-size: 12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    white-space:nowrap; transition: color .25s ease;
+  }
+  .story-pill svg{ width:15px; height:15px; stroke:var(--primary-light); fill:none; stroke-width:1.8; }
+  .story-pill:hover{ color:#fff; }
+  .story-pill__sep{ width:1px; height:18px; background:rgba(255,255,255,0.18); }
+  .story-pill--scroll{
+    width:42px; height:42px; padding:0; justify-content:center;
+    border-radius:50%; background:var(--primary); margin-left:4px;
+    transition: background .25s ease, transform .25s ease;
+  }
+  .story-pill--scroll svg{ stroke:#fff; }
+  .story-pill--scroll:hover{ background:var(--primary-light); transform:translateY(3px); }
+  @media (max-width:680px){
+    .story-pills{ flex-wrap:wrap; justify-content:center; bottom:24px; width:calc(100% - 32px); border-radius:20px; }
+    .story-pill{ padding:8px 12px; font-size:10.5px; letter-spacing:0.1em; }
+    .hero--story .word{ }
+  }
+  .hero--story .word{
+    position:relative;
+    display:inline-block;
+    min-width: 1ch;
+  }
+  .hero--story .word .ghost{ opacity: 0; pointer-events:none; }
+  .hero--story .word .live{
+    position:absolute; inset:0;
+    display:inline-flex; align-items:baseline; justify-content:center;
+    white-space: nowrap;
+  }
+  .hero--story .word .live::after{
+    content:""; display:inline-block;
+    width: 0.085em; height: 0.84em;
+    background: #fff;
+    margin-left: 0.16em;
+    align-self: center;
+    box-shadow: 0 0 18px rgba(255,255,255,0.55);
+    animation: caretBreathe 1.7s ease-in-out infinite;
+    border-radius: 2px;
+    transition: background .3s ease, box-shadow .3s ease;
+  }
+  /* quando la parola è emozionale il cursore diventa rosso */
+  .hero--story .word .live.emotion::after{
+    background: var(--red-accent);
+    box-shadow: 0 0 24px var(--red-accent);
+  }
+  @keyframes caretBreathe{ 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+
+  /* Philosophy section */
+  .philosophy{
+    text-align:center;
+    padding: 130px 0 100px;
+    background: var(--paper);
+    position:relative;
+  }
+  .philosophy .micro-label{
+    color: var(--red-accent);
+    display:inline-flex; align-items:center; gap:14px;
+    margin-bottom: 26px;
+  }
+  .philosophy .micro-label::before,
+  .philosophy .micro-label::after{
+    content:""; width: 30px; height:1px; background: var(--red-accent); opacity:.5;
+  }
+  .philosophy h2{
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 1;
+    color: var(--navy);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .philosophy h2 em{ color: var(--primary); font-style: normal; font-weight: 700; }
+  .philosophy p{
+    max-width: 58ch;
+    margin: 36px auto 0;
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 1.85;
+    font-weight: 300;
+  }
+  .philosophy .rule{
+    width: 56px; height: 3px; background: var(--red-accent);
+    margin: 56px auto 0;
+  }
+
+  /* Founder card */
+  .founder-section{
+    background: var(--paper);
+    padding: 30px 40px 140px;
+  }
+  .founder{
+    max-width: 980px;
+    margin: 0 auto;
+    background: var(--navy);
+    border-radius: 4px;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns: 340px 1fr;
+    box-shadow: 0 40px 90px rgba(26,42,60,0.18);
+  }
+  .founder__photo{
+    background: #0F1B27;
+    aspect-ratio: auto;
+    min-height: 100%;
+    position:relative;
+    overflow:hidden;
+  }
+  .founder__photo .ph{
+    position:absolute; inset:0;
+    color: rgba(255,255,255,0.45);
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 12px, transparent 12px 24px),
+      linear-gradient(180deg, #0F1B27, #1A2A3C);
+    border: none;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    flex-direction: column;
+    gap: 12px;
+    text-align:center;
+    padding: 40px 24px;
+  }
+  .founder__photo .ph .label{ opacity: 0.6; line-height:1.6;}
+  .founder__photo .ph .silhouette{
+    width: 72px; height: 72px; border-radius: 50%;
+    border:1.5px solid rgba(255,255,255,0.3);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .founder__photo .ph .silhouette svg{ width: 36px; height:36px; }
+  .founder__body{
+    padding: 48px 50px 48px 56px;
+    color: #fff;
+    display:flex; flex-direction:column; justify-content:center;
+    position:relative;
+  }
+  .founder__pill{
+    display:inline-block;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    background: var(--red-accent);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+    align-self:flex-start;
+  }
+  .founder__name{
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin: 0 0 10px;
+  }
+  .founder__role{
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--primary-light);
+    font-weight: 600;
+    margin-bottom: 26px;
+  }
+  .founder__bio{
+    padding-left: 22px;
+    border-left: 2px solid var(--red-accent);
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 15.5px;
+    max-width: 50ch;
+    margin-bottom: 30px;
+  }
+  .founder__cta{
+    display:inline-flex; align-items:center; gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+    background: var(--primary);
+    padding: 14px 24px;
+    border-radius: 999px;
+    align-self: flex-start;
+    transition: all 250ms ease;
+  }
+  .founder__cta:hover{
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 0 24px rgba(50,98,115,0.4);
+  }
+  .founder__cta svg{ width:14px; height:14px; }
+
+  /* Team grid (optional, sober) */
+  .team{
+    background: var(--paper);
+    padding: 60px 0 140px;
+  }
+  .team-grid{
+    max-width: 980px;
+    margin: 0 auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .member{
+    background: #fff;
+    border-radius: 4px;
+    overflow:hidden;
+    box-shadow: 0 14px 40px rgba(26,42,60,0.06);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+  .member:hover{ transform: translateY(-6px); box-shadow: 0 26px 60px rgba(26,42,60,0.12);}
+  .member__photo{
+    aspect-ratio: 4/5;
+    background:
+      repeating-linear-gradient(135deg, rgba(50,98,115,0.08) 0 12px, transparent 12px 24px),
+      linear-gradient(180deg, #E9DED8, #F5ECE8);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color: var(--primary); position:relative;
+    gap: 12px;
+  }
+  .member__photo .silhouette{
+    width: 56px; height:56px; border-radius:50%;
+    border:1.5px solid rgba(50,98,115,0.3);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .member__photo .silhouette svg{ width:28px; height:28px;}
+  .member__photo .pill{
+    position:absolute; left:14px; bottom: 14px;
+    font-size: 9.5px; text-transform:uppercase; letter-spacing: 0.18em;
+    color:#fff; background: var(--navy); padding: 4px 10px; border-radius: 999px;
+    font-weight:600;
+  }
+  .member__photo .pill.junior{ background: var(--red-accent); }
+  .member__photo .ph-tag{ font-size: 10px; letter-spacing: 0.22em; text-transform:uppercase; opacity: 0.6;}
+  .member__body{
+    padding: 26px 26px 28px;
+    text-align:center;
+  }
+  .member__body h4{
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .member__body .role{
+    color: var(--red-accent);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .member__body p{
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.65;
+    margin: 0 0 18px;
+    font-weight: 300;
+  }
+  .member__cta{
+    display:inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 200ms ease;
+  }
+  .member__cta:hover{ background: var(--primary); color:#fff; }
+
+  /* CTA bottom — near-black */
+  .cta-banner{
+    background: radial-gradient(120% 120% at 50% 0%, var(--ink-2) 0%, #07090C 70%);
+    color: #fff;
+    text-align:center;
+    padding: 120px 40px;
+  }
+  .cta-banner h2{
+    font-size: clamp(36px, 4.6vw, 56px);
+    line-height:1.12;
+    margin: 16px auto 22px;
+    max-width: 28ch;
+    color: #fff;
+    font-weight: 500;
+  }
+  .cta-banner h2 em{ color: var(--primary-light); font-style:italic; font-weight:500;}
+  .cta-banner p{
+    color: rgba(255,255,255,0.7);
+    max-width: 58ch;
+    margin: 0 auto 40px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height:1.7;
+  }
+
+  @media (max-width: 960px){
+    .founder{ grid-template-columns: 1fr; }
+    .founder__photo{ aspect-ratio: 16/10; min-height: 0; }
+    .founder__body{ padding: 38px 32px;}
+    .team-grid{ grid-template-columns: 1fr; max-width: 420px;}
+    .philosophy{ padding: 90px 0 70px; }
+    .founder-section{ padding: 20px 22px 90px; }
+    .team{ padding: 40px 22px 90px;}
+    .hero--story h1{ font-size: clamp(56px, 16vw, 96px); }
+  }
+
+  /* ============================================================
+     VIDEO HERO BACKGROUND
+     ============================================================ */
+  .hero__video{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    z-index:-3;
+    transform: scale(1.04);
+    animation: heroVidZoom 24s ease-out forwards;
+  }
+  @keyframes heroVidZoom{ from{transform:scale(1.1);} to{transform:scale(1.0);} }
+
+  /* ============================================================
+     I VOLTI DI TIVOLI — blueprint experience
+     ============================================================ */
+  .volti{
+    position:relative;
+    background: var(--paper);
+    overflow:hidden;
+    padding: 0 0 80px;
+  }
+  /* HEADER della sezione: label + logo CENTRATI, attaccati */
+  .volti__header{
+    position:relative; z-index:3;
+    width:100%; display:flex; flex-direction:column; align-items:center;
+    gap: 0;
+  }
+  .volti__divider{
+    width: clamp(160px, 20vw, 240px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary) 30%, var(--primary) 70%, transparent);
+    margin: 0 auto 0;
+    opacity: .55;
+  }
+  .volti__divider-label{
+    text-align:center; display:block;
+    font-family: var(--font-body);
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--primary); font-weight: 700;
+    margin: 0 0 4px;
+  }
+  /* micro-stripe tra logo e boss card */
+  .volti__stripe{
+    display:flex; align-items:center; gap: clamp(20px, 4vw, 48px);
+    margin: -20px 0 18px;
+    color: var(--text-dark);
+  }
+  .volti__stripe-item{ display:flex; flex-direction:column; align-items:center; line-height:1; }
+  .volti__stripe-item strong{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(20px, 1.7vw, 26px);
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  .volti__stripe-item span{
+    margin-top: 6px;
+    font-family: var(--font-body);
+    font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--text-muted); font-weight: 600;
+  }
+  .volti__stripe-sep{ width:1px; height: 28px; background: var(--hairline); }
+  @media (max-width: 620px){
+    .volti__stripe{ gap: 18px; margin: -12px 0 14px; }
+    .volti__stripe-item strong{ font-size: 18px; }
+  }
+  .volti__canvas{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    z-index:0; pointer-events:none;
+  }
+  .volti__inner{
+    position:relative; z-index:2;
+    max-width: 1480px; margin:0 auto; padding:0 24px;
+    display:flex; flex-direction:column; align-items:center; gap: 12px;
+  }
+  /* intro */
+  .volti__intro{ text-align:center; max-width: 760px; }
+  .volti__intro .micro-label{
+    color: var(--red-accent);
+    display:inline-flex; align-items:center; gap:14px; margin-bottom:22px;
+  }
+  .volti__intro .micro-label::before,.volti__intro .micro-label::after{
+    content:""; width:30px; height:1px; background: var(--red-accent); opacity:.5;
+  }
+  .volti__intro h2{
+    font-size: clamp(44px, 6vw, 80px); line-height:1; color: var(--navy);
+    font-weight:500; letter-spacing:-0.02em; margin:0;
+  }
+  .volti__intro h2 em{ color: var(--primary); font-style:italic; font-weight:600; }
+  .volti__intro p{
+    margin: 30px auto 0; color: var(--text-muted); font-size:17px; line-height:1.85; font-weight:300; max-width: 58ch;
+  }
+  .volti__rule{ width:56px; height:3px; background: var(--red-accent); margin: 36px auto 0; border-radius:2px; }
+
+  /* ============================================================
+     BRAND-MARK GRANULOSO (canvas)
+     Le particelle si compongono dal disordine fino a formare il logo
+     ============================================================ */
+  .brand-grain{
+    position:relative;
+    width:100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    aspect-ratio: 21/9;          /* più largo e basso = logo più imponente */
+  }
+  .brand-grain canvas{
+    display:block; width:100%; height:100%;
+    image-rendering: auto;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .brand-grain canvas{ filter:none; }
+  }
+
+  /* BOSS card */
+  .boss-wrap{ width:100%; max-width: 720px; perspective: 1800px; }
+  .boss{
+    position:relative; width:100%; min-height: 340px;
+    background: linear-gradient(135deg, #07090C 0%, var(--ink) 55%, var(--ink-2) 100%);
+    border-radius: 6px; overflow:hidden; display:grid; grid-template-columns: 40% 1fr;
+    box-shadow: 0 30px 70px rgba(7,9,12,0.4); border:1px solid rgba(255,255,255,0.08);
+    transition: box-shadow .5s ease, transform .15s ease;
+    transform-style: preserve-3d;
+  }
+  .boss__glow{
+    position:absolute; inset:0; z-index:3; pointer-events:none; opacity:0;
+    background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(74,143,163,0.22), transparent 42%);
+    transition: opacity .4s ease; mix-blend-mode: screen;
+  }
+  .boss-wrap:hover .boss__glow{ opacity:1; }
+  .boss__photo{
+    position:relative; z-index:2; overflow:hidden; background:#0A1018;
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+  }
+  .boss__photo img{
+    width:100%; height:100%; object-fit:cover;
+    filter: grayscale(0.2) contrast(1.05);
+    opacity: 0;          /* inizia nascosta, il canvas la rivela */
+    transition: transform .8s ease, opacity .9s ease;
+  }
+  .boss__photo.is-done img{ opacity: 1; }
+  .boss-wrap:hover .boss__photo img{ transform: scale(1.05); }
+  .boss__photo canvas{
+    position:absolute; inset:0; width:100%; height:100%;
+    z-index:1; pointer-events:none;
+    opacity: 1;
+    transition: opacity .7s ease .3s;
+  }
+  .boss__photo.is-done canvas{ opacity: 0; }
+  .boss__body{ position:relative; z-index:4; padding: 44px 50px; display:flex; flex-direction:column; justify-content:center; }
+  .boss__pill{
+    align-self:flex-start; background: var(--red-accent); color:#fff;
+    font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+    padding:6px 12px; border-radius:4px; margin-bottom:16px;
+  }
+  .boss__name{
+    font-family: var(--font-display); font-size: clamp(32px,4vw,46px); font-weight:600;
+    line-height:1; margin:0; letter-spacing:-0.01em;
+    background: linear-gradient(to right, #fff, #B8C6DB); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .boss__role{ color: var(--primary-light); font-size:11.5px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; margin:10px 0 22px; }
+  .boss__bio{ color: rgba(255,255,255,0.78); font-size:15px; line-height:1.7; font-weight:300; border-left:2px solid var(--red-accent); padding-left:20px; margin:0 0 28px; max-width:46ch; }
+  .boss__btn{
+    align-self:flex-start; display:inline-flex; align-items:center; gap:14px;
+    background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.2); color:#fff;
+    padding:11px 22px; border-radius:100px; cursor:pointer;
+    font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; transition:.3s;
+  }
+  .boss__btn:hover{ background: var(--primary); border-color: var(--primary); }
+  .boss__btn .turn{ width:20px; height:20px; border-radius:50%; background:#fff; color:var(--navy); display:flex; align-items:center; justify-content:center; font-size:13px; transition:.4s ease; }
+  .boss.active .boss__btn .turn{ transform: rotate(135deg); }
+  .boss__contacts{
+    max-height:0; overflow:hidden; opacity:0; transition: max-height .5s var(--ease-out), opacity .5s ease, margin .5s ease;
+    margin-top:0; border-top:1px solid rgba(255,255,255,0.1);
+  }
+  .boss.active .boss__contacts{ max-height:120px; opacity:1; margin-top:24px; padding-top:18px; }
+  .boss__contacts a{ color:#fff; font-size:14px; display:inline-flex; gap:10px; align-items:center; }
+  .boss__contacts a + a{ margin-top:10px; }
+  .boss__contacts svg{ width:15px; height:15px; stroke: var(--primary-light); fill:none; stroke-width:1.8; }
+
+  /* TEAM grid */
+  .volti__team{ width:100%; }
+  .volti__team .section-head{ margin-bottom: 46px; }
+  .vteam-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:28px; }
+  .vmember{
+    background:#fff; border-radius:6px; overflow:hidden;
+    box-shadow: 0 14px 40px rgba(26,42,60,0.07); border-bottom:3px solid transparent;
+    transition: transform .4s var(--ease-out), box-shadow .4s ease, border-color .4s ease;
+    display:flex; flex-direction:column;
+  }
+  .vmember:hover{ transform: translateY(-8px); box-shadow:0 28px 60px rgba(26,42,60,0.14); border-bottom-color: var(--red-accent); }
+  .vmember__photo{
+    aspect-ratio:4/5; position:relative; overflow:hidden;
+    background: repeating-linear-gradient(135deg, rgba(50,98,115,0.07) 0 12px, transparent 12px 24px), linear-gradient(180deg,#E9DED8,#F5ECE8);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; color: var(--primary);
+  }
+  .vmember__photo .silhouette{ width:58px; height:58px; border-radius:50%; border:1.5px solid rgba(50,98,115,0.3); display:flex; align-items:center; justify-content:center; }
+  .vmember__photo .silhouette svg{ width:28px; height:28px; }
+  .vmember__photo .ph-tag{ font-size:10px; letter-spacing:0.2em; text-transform:uppercase; opacity:.6; }
+  .vmember__photo .badge{ position:absolute; left:0; bottom:0; background: var(--navy); color:#fff; font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; padding:5px 11px; border-top-right-radius:8px; }
+  .vmember__photo .badge.junior{ background: var(--red-accent); }
+  .vmember__body{ padding:24px 24px 26px; text-align:center; }
+  .vmember__body h4{ font-family: var(--font-body); font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); font-weight:600; margin:0 0 6px; }
+  .vmember__body .role{ color: var(--red-accent); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; margin-bottom:14px; }
+  .vmember__body p{ color: var(--text-muted); font-size:13.5px; line-height:1.6; font-weight:300; margin:0 0 18px; }
+  .vmember__cta{ display:inline-block; padding:8px 18px; border-radius:100px; border:1px solid var(--primary); color:var(--primary); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; transition:.25s; }
+  .vmember__cta:hover{ background: var(--primary); color:#fff; }
+
+  @media (max-width: 900px){
+    .boss{ grid-template-columns:1fr; transform:none !important; }
+    .boss__photo{ clip-path:none; aspect-ratio:16/10; }
+    .vteam-grid{ grid-template-columns:1fr; max-width:380px; margin:0 auto; }
+  }
+</style>
+</head>
+<body data-screen-label="02 Chi siamo">
+
+<!-- =========================================================
+     NAV
+     ========================================================= -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="logo" aria-label="Casa 2.0 — Home">
+      <img src="assets/logo.png" alt="Casa 2.0" />
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chi-siamo.html" class="active">Chi siamo</a></li>
+      <li><a href="servizi.html">Servizi</a></li>
+      <li><a href="properties.html">Immobili</a></li>
+      <li><a href="contattaci.html">Contattaci</a></li>
+    </ul>
+    <a href="investors.html" class="nav__lang" title="English version">EN</a>
+    <a href="valuta.html" class="btn nav__cta-desktop">Valutazione Gratuita</a>
+    <button class="nav__burger" id="burger" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav__overlay" id="nav-overlay" aria-hidden="true">
+  <button id="overlay-close" aria-label="Chiudi menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="chi-siamo.html">Chi siamo</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="properties.html">Immobili</a>
+  <a href="contattaci.html">Contattaci</a>
+  <a href="valuta.html" class="btn btn--lg">Valutazione Gratuita</a>
+</div>
+
+<!-- =========================================================
+     HERO — typewriter cycling
+     ========================================================= -->
+<header class="hero hero--story">
+  <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-story-poster.jpg" aria-hidden="true">
+    <source src="assets/hero-story-web.mp4" type="video/mp4">
+  </video>
+  <div class="hero__wash" aria-hidden="true"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <span class="hero__prefix" id="hero-prefix">NON È SOLO</span>
+    <h1>
+      <span class="word">
+        <span class="ghost" id="hero-ghost">LAVORO.</span>
+        <span class="live" id="hero-live">LAVORO.</span>
+      </span>
+    </h1>
+  </div>
+
+  <div class="story-pills">
+    <span class="story-pill">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Tivoli Centro
+    </span>
+    <span class="story-pill__sep"></span>
+    <span class="story-pill">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      Valutazioni Reali
+    </span>
+    <span class="story-pill__sep"></span>
+    <span class="story-pill">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      Senza Stress
+    </span>
+    <span class="story-pill__sep"></span>
+    <a class="story-pill story-pill--scroll" href="#filosofia" aria-label="Scopri di più">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- =========================================================
+     LA NOSTRA FILOSOFIA
+     ========================================================= -->
+<section class="volti" id="filosofia">
+  <canvas class="volti__canvas" id="blueprint"></canvas>
+  <div class="volti__inner">
+
+    <!-- BRAND-MARK granuloso (attaccato alla sezione, niente label/linea) -->
+    <figure class="brand-grain reveal" id="brand-grain" aria-label="Casa 2.0">
+      <canvas></canvas>
+    </figure>
+
+    <!-- micro-stripe: tre indicatori essenziali, hanno respiro tra logo e card -->
+    <div class="volti__stripe reveal" data-delay="1">
+      <div class="volti__stripe-item"><strong>1994</strong><span>dal · l'inizio</span></div>
+      <span class="volti__stripe-sep"></span>
+      <div class="volti__stripe-item"><strong>Tivoli</strong><span>centro · radici</span></div>
+      <span class="volti__stripe-sep"></span>
+      <div class="volti__stripe-item"><strong>24h</strong><span>tempo · risposta</span></div>
+    </div>
+
+    <!-- BOSS card — Gael -->
+    <div class="boss-wrap reveal" id="boss-wrap" data-delay="1">
+      <article class="boss" id="boss">
+        <div class="boss__glow"></div>
+        <div class="boss__photo" id="boss-photo">
+          <canvas></canvas>
+          <img src="assets/gael.jpg" alt="Gael Ceravolo, titolare di Casa 2.0" id="boss-photo-img" />
+        </div>
+        <div class="boss__body">
+          <span class="boss__pill">Titolare</span>
+          <h3 class="boss__name">Gael Ceravolo</h3>
+          <div class="boss__role">Founder &amp; Broker</div>
+          <p class="boss__bio">Dal 1994 a Tivoli. Conoscenza profonda del territorio unita a un metodo trasparente: valutazioni oneste, marketing curato, una guida sicura dalla prima visita al rogito.</p>
+          <button class="boss__btn" id="boss-toggle" type="button">
+            Contatta Gael <span class="turn">+</span>
+          </button>
+          <div class="boss__contacts" id="boss-contacts">
+            <a href="https://wa.me/393388449030" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg> WhatsApp · +39 338 844 9030</a>
+            <a href="mailto:info@casaduepuntozero.net"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> info@casaduepuntozero.net</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- TEAM -->
+    <div class="volti__team">
+      <div class="section-head reveal">
+        <span class="micro-label" style="color:var(--primary)">Il team</span>
+        <h2 style="font-size:clamp(30px,3.4vw,42px); color:var(--navy);">Le persone <em>dietro</em> a Casa 2.0.</h2>
+      </div>
+      <div class="vteam-grid">
+        <article class="vmember reveal" data-delay="1">
+          <div class="vmember__photo">
+            <div class="silhouette"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+            <span class="ph-tag">Foto da fornire</span>
+            <span class="badge">Senior</span>
+          </div>
+          <div class="vmember__body">
+            <h4>Roberto</h4>
+            <div class="role">Consulente tecnico</div>
+            <p>La roccia tecnica del team: burocrazia, conformità, trasparenza assoluta. Ti guida con mano ferma.</p>
+            <a class="vmember__cta" href="contattaci.html">Contatta</a>
+          </div>
+        </article>
+        <article class="vmember reveal" data-delay="2">
+          <div class="vmember__photo">
+            <div class="silhouette"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+            <span class="ph-tag">Foto da fornire</span>
+            <span class="badge">Senior</span>
+          </div>
+          <div class="vmember__body">
+            <h4>Valentina</h4>
+            <div class="role">Consulente immobiliare</div>
+            <p>Empatia e cura del dettaglio: per lei la casa è emozione prima che metratura. Trova l'equilibrio giusto.</p>
+            <a class="vmember__cta" href="contattaci.html">Contatta</a>
+          </div>
+        </article>
+        <article class="vmember reveal" data-delay="3">
+          <div class="vmember__photo">
+            <div class="silhouette"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></div>
+            <span class="ph-tag">Foto da fornire</span>
+            <span class="badge junior">Junior</span>
+          </div>
+          <div class="vmember__body">
+            <h4>Edoardo</h4>
+            <div class="role">Consulente junior</div>
+            <p>La nuova generazione: valori tradizionali e innovazione digitale, massima visibilità sui canali social.</p>
+            <a class="vmember__cta" href="contattaci.html">Contatta</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     CTA finale
+     ========================================================= -->
+<section class="cta-banner">
+  <div class="container">
+    <span class="micro-label reveal" style="color:var(--red-accent); display:inline-block;">Iniziamo insieme</span>
+    <h2 class="reveal">Mettiamo la nostra <em>faccia</em><br/>su ogni promessa.</h2>
+    <p class="reveal" data-delay="1">Una chiacchierata onesta, senza fretta. Vieni in ufficio, scrivici su WhatsApp, o lascia che veniamo noi da te.</p>
+    <div class="reveal" data-delay="2" style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="valuta.html" class="btn btn--lg">Richiedi valutazione gratuita</a>
+      <a href="https://wa.me/393388449030" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg">
+        Scrivici su WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><img src="assets/logo.png" alt="Casa 2.0" /></a>
+        <p class="footer__tag">"Non vendiamo solo mura, custodiamo sogni. Progettiamo con te la tua prossima, grande partenza."</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9V14.9H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3v-7H6V18.3h2.3zM7.2 10.3a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zm11.1 8v-4c0-2.1-1.1-3.1-2.6-3.1-1.2 0-1.8.7-2.1 1.1v-1H11.3v7h2.3v-3.9c0-1 .2-2 1.4-2 1.3 0 1.3 1.2 1.3 2v3.9h2.3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Naviga</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="servizi.html">Servizi</a></li>
+          <li><a href="properties.html">Immobili</a></li>
+          <li><a href="contattaci.html">Contattaci</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Servizi</h4>
+        <ul>
+          <li><a href="servizi.html#acquista">Per chi acquista</a></li>
+          <li><a href="servizi.html#vende">Per chi vende</a></li>
+          <li><a href="servizi.html#affitta">Per chi affitta</a></li>
+          <li><a href="valuta.html">Valutazione gratuita</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul>
+          <li>Via Colsereno 45, Tivoli (RM)</li>
+          <li><a href="tel:+393388449030">+39 338 844 9030</a></li>
+          <li><a href="mailto:info@casaduepuntozero.net">info@casaduepuntozero.net</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Casa 2.0 — Gael Ceravolo · Tivoli (RM)</span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="cookie.html">Cookie Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=11"></script>
+<script>
+  /* =========================================================
+     HERO TYPEWRITER — cycle (prefix, word) pairs
+     ========================================================= */
+  const PAIRS = [
+    ['NON È SOLO',  'LAVORO.'],
+    ['CI METTIAMO', 'IL CUORE.'],
+    ['CASA 2.0 È',  'PASSIONE.']
+  ];
+
+  const prefixEl = document.getElementById('hero-prefix');
+  const liveEl   = document.getElementById('hero-live');
+  const ghostEl  = document.getElementById('hero-ghost');
+
+  let pairIdx = 0;
+  let charIdx = 0;
+  let phase = 'typing'; // typing | hold | deleting
+  const TYPE_MS = 70;
+  const DEL_MS  = 40;
+  const HOLD_MS = 1700;
+  const PAUSE_MS = 350;
+
+  function setPrefix(text){
+    prefixEl.textContent = text;
+  }
+  function setWord(text){
+    liveEl.textContent = text;
+    ghostEl.textContent = (PAIRS[pairIdx][1] || '').padEnd(text.length, ' ');
+  }
+  function step(){
+    const [prefix, word] = PAIRS[pairIdx];
+    liveEl.classList.toggle('emotion', /PASSIONE/.test(word));
+    if(prefixEl.textContent !== prefix) setPrefix(prefix);
+    if(phase === 'typing'){
+      charIdx++;
+      setWord(word.slice(0, charIdx));
+      if(charIdx >= word.length){ phase = 'hold'; setTimeout(step, HOLD_MS); return; }
+      setTimeout(step, TYPE_MS + Math.random()*40);
+    } else if(phase === 'hold'){
+      phase = 'deleting'; step();
+    } else if(phase === 'deleting'){
+      charIdx--;
+      setWord(word.slice(0, Math.max(charIdx,0)));
+      if(charIdx <= 0){
+        phase = 'typing';
+        pairIdx = (pairIdx + 1) % PAIRS.length;
+        // pre-size ghost to the next word so layout doesn't jump
+        ghostEl.textContent = PAIRS[pairIdx][1];
+        charIdx = 0;
+        setTimeout(step, PAUSE_MS);
+      } else {
+        setTimeout(step, DEL_MS);
+      }
+    }
+  }
+  // initial state: ghost holds longest word width to avoid layout shifts
+  ghostEl.textContent = PAIRS.reduce((a,p)=> p[1].length>a.length ? p[1] : a, '');
+  setWord('');
+  setPrefix(PAIRS[0][0]);
+  setTimeout(step, 600);
+</script>
+<script>
+  /* =========================================================
+     VETRO / DISPERSIONE — la foto Gael si ricompone dalle tessere
+     ========================================================= */
+  (function(){
+    const wrap = document.getElementById('boss-photo');
+    if(!wrap) return;
+    const canvas = wrap.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    const imgEl = document.getElementById('boss-photo-img');
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const TILE = 14;          // dimensione tessera in px CSS
+    const DURATION = 1500;
+    const SPREAD = 0.45;      // quanto si disperdono al massimo (in % della tessera × 30)
+
+    let img=null, tiles=[], cssW=0, cssH=0, t0=0, started=false;
+
+    function resize(){
+      const r = wrap.getBoundingClientRect();
+      cssW = r.width; cssH = r.height;
+      canvas.width = Math.floor(cssW * DPR);
+      canvas.height = Math.floor(cssH * DPR);
+    }
+
+    function buildTiles(){
+      if(!img) return;
+      tiles = [];
+      const cols = Math.ceil(cssW / TILE);
+      const rows = Math.ceil(cssH / TILE);
+      // mapping foto → tessere mantenendo aspect
+      const ir = img.width / img.height;
+      const cr = cssW / cssH;
+      let sw, sh, sx, sy;
+      if(ir > cr){ sh = img.height; sw = sh * cr; sx = (img.width - sw)/2; sy = 0; }
+      else      { sw = img.width;  sh = sw / cr; sx = 0; sy = (img.height - sh)/2; }
+      const tileSrcW = sw / cols, tileSrcH = sh / rows;
+      const maxOffset = TILE * 30 * SPREAD; // dispersione in px CSS
+      for(let r=0; r<rows; r++){
+        for(let c=0; c<cols; c++){
+          const ang = Math.random() * Math.PI * 2;
+          const dist = Math.random() * maxOffset;
+          tiles.push({
+            sx: sx + c*tileSrcW, sy: sy + r*tileSrcH, sw: tileSrcW, sh: tileSrcH,
+            dx: c*TILE, dy: r*TILE,
+            ox: Math.cos(ang)*dist, oy: Math.sin(ang)*dist,
+            rot: (Math.random()-0.5)*0.8,    // rotazione iniziale rad
+            delay: Math.random() * 380
+          });
+        }
+      }
+    }
+
+    function ease(t){ return 1 - Math.pow(1-t, 3); }
+
+    function frame(now){
+      const elapsed = now - t0;
+      ctx.save();
+      ctx.scale(DPR, DPR);
+      ctx.clearRect(0,0,cssW,cssH);
+      let allDone = true;
+      for(const t of tiles){
+        const local = Math.max(0, Math.min(1, (elapsed - t.delay) / DURATION));
+        const e = ease(local);
+        const x = t.dx + t.ox * (1 - e);
+        const y = t.dy + t.oy * (1 - e);
+        const rot = t.rot * (1 - e);
+        const a = Math.min(1, local * 1.6);
+        ctx.globalAlpha = a;
+        if(rot){
+          ctx.save();
+          ctx.translate(x + TILE/2, y + TILE/2);
+          ctx.rotate(rot);
+          ctx.drawImage(img, t.sx, t.sy, t.sw, t.sh, -TILE/2, -TILE/2, TILE+1, TILE+1);
+          ctx.restore();
+        } else {
+          ctx.drawImage(img, t.sx, t.sy, t.sw, t.sh, x, y, TILE+1, TILE+1);
+        }
+        if(local < 1) allDone = false;
+      }
+      ctx.restore();
+      if(allDone){
+        wrap.classList.add('is-done');
+        return;
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function start(){
+      if(started) return; started = true;
+      if(reduce){ wrap.classList.add('is-done'); return; }
+      resize(); buildTiles();
+      t0 = performance.now();
+      requestAnimationFrame(frame);
+    }
+
+    img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = ()=>{
+      if('IntersectionObserver' in window){
+        const io = new IntersectionObserver(es=>{
+          es.forEach(e=>{ if(e.isIntersecting){ start(); io.disconnect(); } });
+        }, { threshold: 0.3 });
+        io.observe(wrap);
+      } else { start(); }
+    };
+    img.onerror = ()=>{ wrap.classList.add('is-done'); };
+    img.src = 'assets/gael.jpg';
+
+    let rT;
+    window.addEventListener('resize', ()=>{
+      if(started) return;
+      clearTimeout(rT); rT = setTimeout(resize, 200);
+    });
+  })();
+
+  /* =========================================================
+     BRAND-MARK GRANULOSO — particelle dal logo (canvas 2D)
+     ========================================================= */
+  (function(){
+    const wrap = document.getElementById('brand-grain');
+    if(!wrap) return;
+    const canvas = wrap.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let targets = []; // [{tx,ty}]
+    let parts   = []; // [{x,y,vx,vy,size,alpha,tx,ty}]
+    let started = false, running = false, t0 = 0;
+    const DURATION = 1800; // ms per formare il logo
+
+    function resize(){
+      const r = wrap.getBoundingClientRect();
+      canvas.width  = Math.floor(r.width  * DPR);
+      canvas.height = Math.floor(r.height * DPR);
+    }
+
+    function sampleLogo(cb){
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = ()=>{
+        // ridisegno il logo su un canvas interno per leggere i pixel
+        const TARGET_W = Math.min(640, canvas.width / DPR);
+        const ratio = img.height / img.width;
+        const w = Math.floor(TARGET_W);
+        const h = Math.floor(TARGET_W * ratio);
+        const off = document.createElement('canvas');
+        off.width = w; off.height = h;
+        const octx = off.getContext('2d');
+        octx.drawImage(img, 0, 0, w, h);
+        const data = octx.getImageData(0, 0, w, h).data;
+
+        // sampling: prendo i pixel scuri (logo), uno ogni N px
+        // step più piccolo = più grana = più impatto; bilanciato per perf
+        const STEP = 3;
+        const pts = [];
+        for(let y=0; y<h; y+=STEP){
+          for(let x=0; x<w; x+=STEP){
+            const i = (y*w + x) * 4;
+            // luminanza pesata; il logo è scuro su bianco
+            const lum = 0.299*data[i] + 0.587*data[i+1] + 0.114*data[i+2];
+            const a   = data[i+3];
+            if(a > 128 && lum < 120){
+              pts.push({x, y});
+            }
+          }
+        }
+
+        // centro nel canvas, scaling al DPR
+        const cw = canvas.width, ch = canvas.height;
+        const scale = Math.min(cw / w, ch / h) * 0.78; // padding visivo
+        const offsetX = (cw - w*scale) / 2;
+        const offsetY = (ch - h*scale) / 2;
+        targets = pts.map(p=>({ tx: offsetX + p.x*scale, ty: offsetY + p.y*scale }));
+        cb && cb();
+      };
+      img.onerror = ()=>{ /* silent: fallback = niente animazione */ };
+      img.src = 'assets/logo.png';
+    }
+
+    function seedParticles(){
+      const cw = canvas.width, ch = canvas.height;
+      const cx = cw/2, cy = ch/2;
+      parts = targets.map(t=>{
+        const ang = Math.random()*Math.PI*2;
+        const rad = Math.random() * Math.max(cw,ch) * 0.7;
+        return {
+          x: cx + Math.cos(ang)*rad,
+          y: cy + Math.sin(ang)*rad,
+          tx: t.tx, ty: t.ty,
+          size: (Math.random()*1.1 + 0.7) * DPR,
+          alpha: 0,
+          delay: Math.random() * 380  // arrivi sfalsati
+        };
+      });
+    }
+
+    function easeOutQuart(t){ return 1 - Math.pow(1-t, 4); }
+
+    function frame(now){
+      const elapsed = now - t0;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      let allDone = true;
+      for(const p of parts){
+        const localT = Math.max(0, Math.min(1, (elapsed - p.delay) / DURATION));
+        const e = easeOutQuart(localT);
+        const x = p.x + (p.tx - p.x) * e;
+        const y = p.y + (p.ty - p.y) * e;
+        const a = Math.min(0.92, localT * 1.4);
+        // colore: navy del brand
+        ctx.fillStyle = `rgba(26, 42, 60, ${a})`;
+        ctx.fillRect(x, y, p.size, p.size);
+        if(localT < 1) allDone = false;
+      }
+      if(allDone){
+        running = false;
+        wrap.classList.add('is-done');
+        return;
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function start(){
+      if(started) return; started = true;
+      if(reduce){
+        // render statico: solo target
+        for(const t of targets){ ctx.fillStyle = 'rgba(26,42,60,0.9)'; ctx.fillRect(t.tx, t.ty, 1.4*DPR, 1.4*DPR); }
+        wrap.classList.add('is-done');
+        return;
+      }
+      seedParticles();
+      t0 = performance.now();
+      running = true;
+      requestAnimationFrame(frame);
+    }
+
+    // pipeline: resize → sample → wait visible → animate
+    function boot(){
+      resize();
+      sampleLogo(()=>{
+        if('IntersectionObserver' in window){
+          const io = new IntersectionObserver((es)=>{
+            es.forEach(e=>{ if(e.isIntersecting){ start(); io.disconnect(); } });
+          }, { threshold: 0.35 });
+          io.observe(wrap);
+        } else { start(); }
+      });
+    }
+
+    // gestisce ridimensionamento: refit del logo se non ancora partito
+    let rT;
+    window.addEventListener('resize', ()=>{
+      if(started) return;
+      clearTimeout(rT);
+      rT = setTimeout(()=>{ resize(); sampleLogo(); }, 200);
+    });
+
+    boot();
+  })();
+
+  /* =========================================================
+     BLUEPRINT CANVAS — griglia tecnica reattiva al mouse
+     (scoped alla sezione .volti, redraw solo on-demand)
+     ========================================================= */
+  (function(){
+    const section = document.getElementById('filosofia');
+    const canvas  = document.getElementById('blueprint');
+    if(!section || !canvas) return;
+    const ctx = canvas.getContext('2d');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const STEP = 76, RADAR = 240;
+    let W=0, H=0, mouse={x:-9999,y:-9999};
+
+    function size(){
+      W = canvas.width  = section.offsetWidth;
+      H = canvas.height = section.offsetHeight;
+      draw();
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(let y=0; y<=H+STEP; y+=STEP){
+        for(let x=0; x<=W+STEP; x+=STEP){
+          const d = Math.hypot(mouse.x-x, mouse.y-y);
+          const near = d < RADAR;
+          const a = near ? (1 - d/RADAR)*0.6 : 0;
+          // linee
+          ctx.lineWidth = near ? 1.3 : 0.5;
+          ctx.strokeStyle = near ? `rgba(192,57,43,${a+0.05})` : 'rgba(50,98,115,0.06)';
+          ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+STEP,y); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x,y+STEP); ctx.stroke();
+          // croce
+          const s = near ? 5 : 3;
+          ctx.strokeStyle = near ? `rgba(192,57,43,${a+0.12})` : 'rgba(50,98,115,0.10)';
+          ctx.beginPath();
+          ctx.moveTo(x-s,y); ctx.lineTo(x+s,y);
+          ctx.moveTo(x,y-s); ctx.lineTo(x,y+s);
+          ctx.stroke();
+        }
+      }
+    }
+    let ticking=false;
+    if(!reduce){
+      section.addEventListener('mousemove', e=>{
+        const r = section.getBoundingClientRect();
+        mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+        if(!ticking){ ticking=true; requestAnimationFrame(()=>{ draw(); ticking=false; }); }
+      }, {passive:true});
+      section.addEventListener('mouseleave', ()=>{ mouse={x:-9999,y:-9999}; draw(); });
+    }
+    window.addEventListener('resize', size);
+    size();
+    setTimeout(size, 600); // dopo reveal/layout
+  })();
+
+  /* =========================================================
+     BOSS CARD — tilt 3D + glow + toggle contatti
+     ========================================================= */
+  (function(){
+    const wrap = document.getElementById('boss-wrap');
+    const card = document.getElementById('boss');
+    const toggle = document.getElementById('boss-toggle');
+    if(!card) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = window.matchMedia('(min-width: 901px)').matches;
+
+    if(!reduce && fine){
+      wrap.addEventListener('mousemove', e=>{
+        const r = wrap.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        card.style.setProperty('--mx', x+'px');
+        card.style.setProperty('--my', y+'px');
+        const rx = ((y - r.height/2)/ r.height * -8).toFixed(2);
+        const ry = ((x - r.width/2) / r.width  *  10).toFixed(2);
+        card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+      });
+      wrap.addEventListener('mouseleave', ()=>{ card.style.transform = 'rotateX(0) rotateY(0)'; });
+    }
+    if(toggle){
+      toggle.addEventListener('click', ()=> card.classList.toggle('active'));
+    }
+  })();
+</script>
+</body>
+</html>

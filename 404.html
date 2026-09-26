@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pagina non trovata — Casa 2.0 Tivoli</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="preload" href="/assets/fonts/Zodiak-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=23">
+<style>
+  body{
+    min-height: 100vh;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(50,98,115,0.10), transparent 60%),
+      var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    padding: 60px 24px;
+  }
+  .nf-wrap{ max-width: 720px; width:100%; text-align:center; }
+  .nf-eyebrow{
+    display:inline-flex; align-items:center; gap:14px;
+    font-family: var(--font-body); font-size: 11px; letter-spacing:0.36em; text-transform:uppercase;
+    color: var(--red-accent); font-weight:700; margin-bottom: 24px;
+  }
+  .nf-eyebrow::before, .nf-eyebrow::after{ content:""; width:30px; height:1px; background: var(--red-accent); opacity:.5; }
+  .nf-code{
+    font-family: var(--font-display); font-weight:700;
+    font-size: clamp(120px, 22vw, 220px); line-height: 0.85;
+    color: var(--primary); opacity: .14;
+    letter-spacing: -0.04em; margin: 0 0 20px;
+    animation: nfFloat 6s ease-in-out infinite;
+  }
+  @keyframes nfFloat{ 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-8px); } }
+  .nf-title{
+    font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 500;
+    color: var(--navy); letter-spacing: -0.025em; line-height: 1.05; margin: 0 0 20px;
+  }
+  .nf-title em{ color: var(--primary); font-style: italic; font-weight:500; }
+  .nf-desc{
+    color: var(--text-muted); font-size: 17px; line-height: 1.7; font-weight: 300;
+    max-width: 52ch; margin: 0 auto 40px;
+  }
+  .nf-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .nf-back{
+    margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--hairline);
+    color: var(--text-muted); font-size: 13px; letter-spacing:0.04em;
+  }
+  .nf-back a{ color: var(--primary); border-bottom: 1px solid var(--hairline); transition: border-color .2s ease; }
+  .nf-back a:hover{ border-color: var(--primary); }
+  .nf-logo{ display:block; margin: 0 auto 40px; width: 120px; }
+  .nf-logo img{ width:100%; height:auto; display:block; }
+</style>
+</head>
+<body data-screen-label="404">
+<main class="nf-wrap">
+  <a href="/" class="nf-logo" aria-label="Casa 2.0 — Home">
+    <img src="/assets/logo.png" alt="Casa 2.0" />
+  </a>
+  <span class="nf-eyebrow">Errore 404</span>
+  <p class="nf-code" aria-hidden="true">404</p>
+  <h1 class="nf-title">Questa pagina<br/>non l'abbiamo <em>trovata</em>.</h1>
+  <p class="nf-desc">
+    Forse è stata spostata, oppure il link non è più valido. Nessun problema — ti riportiamo a casa.
+  </p>
+  <div class="nf-actions">
+    <a href="/" class="btn btn--lg">Torna alla home</a>
+    <a href="/properties.html" class="btn btn--outline btn--lg">Sfoglia gli immobili</a>
+  </div>
+  <p class="nf-back">
+    Cerchi qualcosa di specifico? Scrivici a <a href="mailto:info@casaduepuntozero.net">info@casaduepuntozero.net</a> oppure <a href="/contattaci.html">contattaci</a>. Rispondiamo entro 24 ore.
+  </p>
+</main>
+</body>
+</html>

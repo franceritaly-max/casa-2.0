@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Valutazione gratuita immobile a Tivoli — Casa 2.0</title>
+<meta name="description" content="Ricevi entro 24 ore una valutazione professionale e gratuita del tuo immobile a Tivoli, Castel Madama, Guidonia. Basata sui dati reali del mercato locale." />
+<link rel="canonical" href="https://www.casaduepuntozero.net/valuta.html" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<meta property="og:title" content="Valutazione gratuita immobile — Casa 2.0 Tivoli" />
+<meta property="og:description" content="Dati reali del mercato di Tivoli. Risposta entro 24 ore. Senza obblighi." />
+<meta property="og:image" content="https://www.casaduepuntozero.net/assets/tivoli-aerial.jpg" />
+<meta name="theme-color" content="#1A2A3C" />
+<link rel="preload" href="assets/fonts/Zodiak-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=23">
+
+<style>
+  body{ background: var(--paper); }
+  .valuta-hero{
+    padding: calc(var(--nav-h) + 80px) 0 30px;
+    text-align:center;
+  }
+  .valuta-hero .micro-label{
+    color: var(--red-accent);
+    display:inline-flex; align-items:center; gap:14px;
+    margin-bottom: 22px;
+  }
+  .valuta-hero .micro-label::before, .valuta-hero .micro-label::after{
+    content:""; width:30px; height:1px; background: var(--red-accent); opacity:.5;
+  }
+  .valuta-hero h1{
+    font-size: clamp(40px, 5vw, 72px);
+    color: var(--navy); font-weight: 600; letter-spacing:-0.025em; line-height: 1.05;
+  }
+  .valuta-hero h1 em{ color: var(--primary); }
+  .valuta-hero .lead{
+    margin: 22px auto 0; max-width: 56ch; color: var(--text-muted);
+    font-size: 17px; line-height: 1.7; font-weight: 300;
+  }
+  .valuta-wrap{ max-width: 920px; margin: 40px auto 100px; padding: 0 24px; display:grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
+  .valuta-side{ position: sticky; top: 110px; }
+  .valuta-side h3{ font-family: var(--font-display); font-weight: 500; font-size: 22px; color: var(--navy); margin: 0 0 16px; }
+  .valuta-side ul{ list-style:none; padding:0; margin:0; display:grid; gap:14px; }
+  .valuta-side li{ display:flex; gap:12px; font-size:14px; color: var(--text-dark); line-height:1.6; }
+  .valuta-side li svg{ width:18px; height:18px; flex-shrink:0; color: var(--primary); margin-top:3px; }
+  .valuta-side .reassure{
+    margin-top: 28px; padding-top: 20px; border-top:1px solid var(--hairline);
+    font-size: 13px; color: var(--text-muted); line-height: 1.6;
+  }
+  .valuta-card{
+    background:#fff; border-radius: 4px;
+    padding: 40px 40px 36px;
+    box-shadow: 0 20px 50px rgba(26,42,60,0.08), 0 0 0 1px var(--hairline);
+  }
+  .valuta-card h2{ font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--navy); margin: 0 0 4px; letter-spacing: -0.01em; }
+  .valuta-card .sub{ font-size: 13px; color: var(--text-muted); margin-bottom: 26px; }
+  .form-section{ display:grid; gap:18px; }
+  .form-section + .form-section{ margin-top: 22px; padding-top: 22px; border-top:1px dashed var(--hairline); }
+  .form-section h4{ font-family: var(--font-body); font-size:11px; letter-spacing:0.22em; text-transform: uppercase; color: var(--primary); font-weight:700; margin:0 0 4px; }
+  .field{ display:grid; gap:6px; }
+  .field label{ font-size:12px; letter-spacing:0.04em; color: var(--text-dark); font-weight:500; }
+  .field input, .field select, .field textarea{
+    border:1px solid var(--hairline); border-radius: 4px;
+    padding: 12px 14px; font-family: var(--font-body); font-size: 14px; color: var(--text-dark);
+    background:#fff; transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none; border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(50,98,115,0.12);
+  }
+  .field textarea{ min-height: 90px; resize: vertical; font-family: inherit; }
+  .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+  .pill-group{ display:flex; gap:8px; flex-wrap: wrap; }
+  .pill-group input[type="radio"]{ position: absolute; opacity:0; pointer-events:none; }
+  .pill-group label{
+    padding: 9px 16px; border-radius:100px;
+    border:1px solid var(--hairline); cursor:pointer;
+    font-size: 12.5px; color: var(--text-dark); font-weight:500;
+    transition: all .2s ease; background:#fff;
+  }
+  .pill-group input:checked + label{ background: var(--navy); color:#fff; border-color: var(--navy); }
+  .pill-group label:hover{ border-color: var(--primary); }
+  .consent{ display:flex; gap:10px; font-size:12px; color: var(--text-muted); line-height: 1.55; align-items:flex-start; }
+  .consent input{ margin-top:3px; }
+  .consent a{ color: var(--primary); border-bottom:1px solid var(--hairline); }
+  .submit-row{ margin-top: 26px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .submit-row .btn{ flex:1 1 auto; }
+  .form-status{ margin-top: 14px; font-size:13px; font-weight: 500; }
+  .form-status.error{ color: var(--red-accent); }
+  .form-status.success{ color: #1F7A4D; }
+  @media (max-width: 760px){
+    .valuta-wrap{ grid-template-columns: 1fr; gap: 32px; }
+    .valuta-side{ position:static; }
+    .grid-2{ grid-template-columns: 1fr; }
+    .valuta-card{ padding: 28px 22px; }
+  }
+</style>
+</head>
+<body data-screen-label="06 Valutazione">
+
+<!-- NAV (solid) -->
+<nav class="nav solid" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="logo" aria-label="Casa 2.0 — Home"><img src="assets/logo.png" alt="Casa 2.0" /></a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chi-siamo.html">Chi siamo</a></li>
+      <li><a href="servizi.html">Servizi</a></li>
+      <li><a href="properties.html">Immobili</a></li>
+      <li><a href="contattaci.html">Contattaci</a></li>
+    </ul>
+    <a href="contattaci.html" class="btn nav__cta-desktop">Contattaci</a>
+    <button class="nav__burger" id="burger" aria-label="Apri menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__overlay" id="nav-overlay" aria-hidden="true">
+  <button id="overlay-close" aria-label="Chiudi menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="chi-siamo.html">Chi siamo</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="properties.html">Immobili</a>
+  <a href="contattaci.html">Contattaci</a>
+</div>
+
+<header class="valuta-hero">
+  <div class="container">
+    <span class="micro-label">Valutazione gratuita</span>
+    <h1>Quanto vale<br/>la tua <em>casa a Tivoli</em>?</h1>
+    <p class="lead">Pochi dati sul tuo immobile, e in <strong>24 ore</strong> ti diamo una stima fondata sui dati reali del mercato di Tivoli. Senza obblighi.</p>
+  </div>
+</header>
+
+<main class="valuta-wrap">
+  <aside class="valuta-side">
+    <h3>Come funziona</h3>
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Compili il modulo</strong> con i dati essenziali — 3 minuti.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Ti chiamiamo entro 24 ore</strong> per concordare un sopralluogo.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Veniamo noi a vederla.</strong> Stima onesta basata su dati reali di vendita zona.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Senza vincoli.</strong> Decidi tu se affidarci la vendita — o tenere la stima per te.</span></li>
+    </ul>
+    <p class="reassure">I tuoi dati restano in agenzia. Non li condividiamo con terzi. <a href="privacy.html">Privacy Policy</a>.</p>
+  </aside>
+
+  <section class="valuta-card">
+    <h2>Il tuo immobile</h2>
+    <p class="sub">Compila i campi che conosci. Per gli altri facciamo noi.</p>
+
+    <form id="valuta-form" novalidate>
+      <div class="form-section">
+        <h4>Dove si trova</h4>
+        <div class="field"><label for="indirizzo">Indirizzo (via, città) *</label><input id="indirizzo" name="indirizzo" type="text" placeholder="Es. Via Empolitana 12, Tivoli" required></div>
+
+        <div class="field">
+          <label>Tipologia</label>
+          <div class="pill-group">
+            <input type="radio" id="t-appart" name="tipologia" value="Appartamento" checked><label for="t-appart">Appartamento</label>
+            <input type="radio" id="t-villa" name="tipologia" value="Villa"><label for="t-villa">Villa</label>
+            <input type="radio" id="t-villetta" name="tipologia" value="Villetta a schiera"><label for="t-villetta">Villetta</label>
+            <input type="radio" id="t-rustico" name="tipologia" value="Rustico/casale"><label for="t-rustico">Rustico</label>
+            <input type="radio" id="t-comm" name="tipologia" value="Commerciale"><label for="t-comm">Commerciale</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h4>Caratteristiche</h4>
+        <div class="grid-2">
+          <div class="field"><label for="mq">Superficie (mq)</label><input id="mq" name="mq" type="number" min="20" max="2000" placeholder="Es. 95"></div>
+          <div class="field"><label for="anno">Anno di costruzione</label><input id="anno" name="anno" type="number" min="1800" max="2026" placeholder="Es. 1985"></div>
+          <div class="field"><label for="locali">Locali</label><input id="locali" name="locali" type="number" min="1" max="20" placeholder="Es. 3"></div>
+          <div class="field"><label for="piano">Piano</label><input id="piano" name="piano" type="text" placeholder="Es. 2° con ascensore"></div>
+        </div>
+        <div class="field">
+          <label>Stato</label>
+          <div class="pill-group">
+            <input type="radio" id="s-ottimo" name="stato" value="Ottimo" checked><label for="s-ottimo">Ottimo</label>
+            <input type="radio" id="s-buono" name="stato" value="Buono"><label for="s-buono">Buono</label>
+            <input type="radio" id="s-medio" name="stato" value="Da rinfrescare"><label for="s-medio">Da rinfrescare</label>
+            <input type="radio" id="s-ristr" name="stato" value="Da ristrutturare"><label for="s-ristr">Da ristrutturare</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h4>I tuoi contatti</h4>
+        <div class="grid-2">
+          <div class="field"><label for="v-nome">Nome *</label><input id="v-nome" name="nome" type="text" required></div>
+          <div class="field"><label for="v-cognome">Cognome *</label><input id="v-cognome" name="cognome" type="text" required></div>
+          <div class="field"><label for="v-email">Email *</label><input id="v-email" name="email" type="email" required></div>
+          <div class="field"><label for="v-tel">Telefono *</label><input id="v-tel" name="telefono" type="tel" required placeholder="+39 ..."></div>
+        </div>
+        <div class="field"><label for="v-note">Note (opzionale)</label><textarea id="v-note" name="note" placeholder="Aggiungi qualunque informazione utile..."></textarea></div>
+        <label class="consent"><input type="checkbox" name="privacy" required><span>Ho letto e accetto la <a href="privacy.html">Privacy Policy</a> e autorizzo Casa 2.0 a contattarmi per la valutazione. *</span></label>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="btn">Ricevi la valutazione gratuita
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <a href="https://wa.me/393388449030" target="_blank" rel="noopener" class="btn btn--whatsapp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <div class="form-status" id="v-status" aria-live="polite"></div>
+    </form>
+  </section>
+</main>
+
+<!-- FOOTER ridotto -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__bottom" style="border-top:1px solid rgba(255,255,255,0.08); padding-top:32px;">
+      <span>© 2025 Casa 2.0 — Gael Ceravolo · Tivoli (RM)</span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="cookie.html">Cookie Policy</a> · <a href="index.html">Home</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=11"></script>
+<script>
+  /* Form valutazione — riusa la stessa logica web3forms/mailto del form contatti */
+  (function(){
+    const WEB3FORMS_KEY = ''; // incolla qui access key da web3forms.com
+    const LEAD_EMAIL    = 'info@casaduepuntozero.net';
+    const form = document.getElementById('valuta-form');
+    const fst  = document.getElementById('v-status');
+    if(!form) return;
+    form.addEventListener('submit', async e=>{
+      e.preventDefault(); fst.className='form-status'; fst.textContent='';
+      const f = new FormData(form);
+      const get = k => (f.get(k)||'').toString().trim();
+      const errs = [];
+      if(!get('nome') || !get('cognome')) errs.push('Inserisci nome e cognome.');
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(get('email'))) errs.push('Email non valida.');
+      if(!get('telefono')) errs.push('Inserisci un numero di telefono.');
+      if(!get('indirizzo')) errs.push('Inserisci l’indirizzo dell’immobile.');
+      if(!f.get('privacy')) errs.push('Accetta la privacy policy.');
+      if(errs.length){ fst.classList.add('error'); fst.textContent = errs[0]; return; }
+      const btn = form.querySelector('[type="submit"]'); const label = btn.innerHTML;
+      btn.disabled = true; btn.textContent = 'Invio…';
+      // Webhook parallelo (n8n/Make)
+      if(window.Casa20 && window.Casa20.sendLead){
+        window.Casa20.sendLead({ form:'valuta',
+          nome:get('nome'), cognome:get('cognome'), email:get('email'), telefono:get('telefono'),
+          indirizzo:get('indirizzo'), tipologia:get('tipologia'), mq:get('mq'), anno:get('anno'),
+          locali:get('locali'), piano:get('piano'), stato:get('stato'), note:get('note')
+        });
+      }
+      const payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: `Valutazione immobile — ${get('nome')} ${get('cognome')} — ${get('indirizzo')}`,
+        from_name: `${get('nome')} ${get('cognome')}`,
+        indirizzo: get('indirizzo'), tipologia: get('tipologia'),
+        mq: get('mq'), anno: get('anno'), locali: get('locali'), piano: get('piano'), stato: get('stato'),
+        email: get('email'), telefono: get('telefono'), note: get('note'),
+      };
+      try{
+        if(WEB3FORMS_KEY){
+          const r = await fetch('https://api.web3forms.com/submit',{ method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body: JSON.stringify(payload) });
+          if(!r.ok) throw new Error('bad');
+          fst.classList.add('success'); fst.textContent = '✓ Richiesta inviata. Ti chiamiamo entro 24 ore.'; form.reset();
+        } else {
+          const body = Object.entries(payload).filter(([k])=>k!=='access_key').map(([k,v])=>`${k}: ${v}`).join('%0D%0A');
+          window.location.href = `mailto:${LEAD_EMAIL}?subject=${encodeURIComponent(payload.subject)}&body=${body}`;
+          fst.classList.add('success'); fst.textContent = '✓ Si apre il tuo programma di posta. Oppure scrivici su WhatsApp.';
+        }
+      } catch(err){
+        fst.classList.add('error'); fst.textContent = 'Invio non riuscito. Scrivici su WhatsApp o chiama il 338 844 9030.';
+      }
+      btn.disabled = false; btn.innerHTML = label;
+    });
+  })();
+</script>
+</body>
+</html>

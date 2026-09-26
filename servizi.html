@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Servizi — Casa 2.0 · Vendita, Acquisto e Affitto a Tivoli</title>
+<meta name="description" content="I servizi di Casa 2.0 a Tivoli: per chi acquista, per chi vende, per chi affitta. Consulenza, marketing, supporto burocratico end-to-end. Dal 1994." />
+<link rel="canonical" href="https://www.casaduepuntozero.net/servizi.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:site_name" content="Casa 2.0" />
+<meta property="og:title" content="Servizi — Casa 2.0 · Vendita, Acquisto e Affitto a Tivoli" />
+<meta property="og:description" content="Tre famiglie di servizi, una sola promessa: chiarezza, esperienza, presenza. Dal 1994 a Tivoli." />
+<meta property="og:image" content="https://www.casaduepuntozero.net/assets/tivoli/sunset-01.jpg" />
+<meta property="og:url" content="https://www.casaduepuntozero.net/servizi.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#1A2A3C" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="assets/fonts/Zodiak-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=23">
+
+<style>
+  /* nav must be solid (no dark hero behind it on this page) */
+  body{ background: var(--paper); }
+
+  /* ============================================================
+     SERVIZI — page header (compact)
+     ============================================================ */
+  .page-header{
+    padding: calc(var(--nav-h) + 80px) 0 30px;
+    text-align:center;
+    background: var(--paper);
+    position:relative;
+  }
+  .page-header .micro-label{
+    color: var(--primary);
+    display:inline-flex; align-items:center; gap:14px;
+    margin-bottom: 22px;
+  }
+  .page-header .micro-label::before,
+  .page-header .micro-label::after{
+    content:""; width:30px; height:1px; background: var(--primary); opacity:0.4;
+  }
+  .page-header h1{
+    font-size: clamp(48px, 6vw, 80px);
+    color: var(--primary);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing:-0.02em;
+  }
+  .page-header h1 em{ color: var(--navy); font-style:italic; font-weight:500; }
+  .page-header .lead{
+    margin: 26px auto 0;
+    max-width: 56ch;
+    color: var(--text-muted);
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     VETRINA — pannelli a due colonne, card che entrano da destra
+     ============================================================ */
+  .vetrina{
+    background: var(--paper);
+    padding: 40px 0 20px;
+  }
+  .v-panel{
+    padding: 70px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .v-panel + .v-panel{
+    border-top: 1px dashed rgba(50,98,115, 0.18);
+  }
+  .v-panel__inner{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 40px;
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  /* lato con numero gigante — riempie lo spazio vuoto */
+  .v-side{ position:relative; }
+  .v-bignum{
+    display:block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(130px, 17vw, 280px);
+    line-height: 0.86;
+    color: var(--primary);
+    opacity: 0.13;
+    letter-spacing: -0.04em;
+    user-select:none;
+    transform: translateX(-30px);
+    transition: transform 1100ms cubic-bezier(.2,.7,.2,1), opacity 800ms ease;
+  }
+  .v-panel.active .v-bignum{ transform: translateX(0); opacity: 0.18; }
+  .v-kicker{
+    display:block; margin-top: 8px;
+    font-family: var(--font-body);
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--red-accent); font-weight: 600;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity .7s ease .2s, transform .7s ease .2s;
+  }
+  .v-panel.active .v-kicker{ opacity: 1; transform: translateY(0); }
+
+  .v-card{
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    width: 100%;
+    background: #fff;
+    border-radius: 4px;
+    border-top: 4px solid var(--primary);
+    padding: 48px 50px 44px;
+    box-shadow:
+      0 30px 80px rgba(50,98,115,0.14),
+      0 6px 16px rgba(26,42,60,0.05);
+    /* entrata da destra */
+    transform: translateX(90px);
+    opacity: 0;
+    filter: blur(6px);
+    transition:
+      transform 900ms cubic-bezier(.2,.7,.2,1),
+      opacity 700ms ease-out,
+      filter 700ms ease-out;
+  }
+  .v-panel.active .v-card{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+  /* alternanza: i pannelli pari invertono (numero a destra, card da sinistra) */
+  .v-panel:nth-of-type(even) .v-side{ order: 2; text-align: right; }
+  .v-panel:nth-of-type(even) .v-card{ order: 1; transform: translateX(-90px); }
+  .v-panel:nth-of-type(even).active .v-card{ transform: translateX(0); }
+  .v-card__num{
+    display:inline-flex;
+    align-items:center; justify-content:center;
+    width: 56px; height: 28px;
+    background: var(--primary);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .v-card h2{
+    font-size: clamp(34px, 3.6vw, 44px);
+    color: var(--navy);
+    line-height: 1.1;
+    margin: 0 0 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .v-card .tagline{
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    margin: 0 0 26px;
+    font-style: italic;
+    font-family: var(--font-display);
+    font-size: 19px;
+  }
+  .v-card p{
+    color: var(--text-muted);
+    font-size: 15.5px;
+    line-height: 1.78;
+    font-weight: 300;
+    margin: 0 0 22px;
+  }
+  .v-card__list{
+    list-style:none;
+    padding:0; margin: 0 0 32px;
+    display:grid;
+    gap: 12px;
+  }
+  .v-card__list li{
+    display:flex; gap:12px; align-items:flex-start;
+    font-size: 14px;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  .v-card__list li svg{
+    width: 18px; height:18px; flex-shrink: 0;
+    color: var(--primary);
+    margin-top: 3px;
+  }
+  .v-card__cta{
+    display:inline-flex; align-items:center; gap:10px;
+    color: var(--primary);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--primary);
+    transition: gap 200ms ease, color 200ms ease, border-color 200ms ease;
+  }
+  .v-card__cta:hover{
+    gap: 16px;
+    color: var(--primary-light);
+    border-color: var(--primary-light);
+  }
+  .v-card__cta svg{ width: 14px; height: 14px; }
+
+  /* ============================================================
+     CINEMA DIVIDER — fessura che si apre rivelando il paesaggio
+     Effetto unico: clip-path inset che si apre verticalmente su scroll
+     ============================================================ */
+  .cinema{
+    position:relative;
+    height: 70vh; min-height: 480px;
+    margin: 30px 0;
+    overflow:hidden;
+    isolation:isolate;
+    --o: 0;                  /* opening 0..1, controllato da JS */
+  }
+  .cinema__bg{
+    position:absolute; inset:0;
+    background-image: url('assets/tivoli/tivoli-05.jpg');
+    background-size: cover;
+    background-position: center 38%;
+    /* La fessura: clip-path inset si APRE verticalmente */
+    clip-path: inset(calc((1 - var(--o)) * 50%) 0);
+    transform: scale(calc(1.08 - var(--o) * 0.08));
+    will-change: clip-path, transform;
+    transition: none;
+  }
+  /* grano sottile sovrapposto = sensazione stampa film */
+  .cinema__grain{
+    position:absolute; inset:0; pointer-events:none; z-index:2;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: .9;
+  }
+  .cinema__overlay{
+    position:absolute; inset:0; z-index:1;
+    background:
+      radial-gradient(120% 80% at 50% 100%, rgba(14,17,22,0.55), rgba(14,17,22,0) 60%),
+      linear-gradient(180deg, rgba(14,17,22,0.18) 0%, rgba(14,17,22,0) 35%, rgba(14,17,22,0.55) 100%);
+  }
+  .cinema__caption{
+    position:absolute; left: 0; right: 0; bottom: 14%;
+    z-index: 3;
+    text-align:center;
+    padding: 0 24px;
+    color: #fff;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: clamp(28px, 4.4vw, 64px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    opacity: var(--o);
+    transform: translateY(calc((1 - var(--o)) * 24px));
+    transition: opacity .8s ease, transform .8s ease;
+    max-width: 22ch;
+    margin: 0 auto;
+  }
+  .cinema__caption .small{
+    display:block;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 18px;
+  }
+  @media (max-width: 720px){
+    .cinema{ height: 56vh; min-height: 360px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cinema{ --o: 1; }
+  }
+
+  /* ============================================================
+     FAQ — accordion editoriale (con Schema.org FAQPage)
+     ============================================================ */
+  .faq{ background: var(--paper); padding: 100px 0; }
+  .faq__head{ text-align:center; max-width:680px; margin: 0 auto 60px; padding: 0 24px; }
+  .faq__head .micro-label{ color: var(--primary); display:inline-flex; gap:14px; align-items:center; margin-bottom:18px; }
+  .faq__head .micro-label::before,.faq__head .micro-label::after{ content:""; width:30px; height:1px; background: var(--primary); opacity:.4; }
+  .faq__head h2{ font-size: clamp(34px, 4.2vw, 52px); color: var(--navy); font-weight:500; letter-spacing:-0.025em; line-height:1.08; }
+  .faq__head h2 em{ color: var(--primary); font-style: italic; font-weight:500; }
+  .faq__head p{ margin-top:18px; color: var(--text-muted); font-size: 16px; line-height: 1.65; font-weight:300; }
+  .faq__list{ max-width: 820px; margin: 0 auto; padding: 0 24px; }
+  .faq__item{
+    border-top: 1px solid var(--hairline);
+    transition: background .25s ease;
+  }
+  .faq__item:last-child{ border-bottom: 1px solid var(--hairline); }
+  .faq__q{
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    padding: 22px 4px; cursor:pointer; background:none; border:none; width:100%;
+    font-family: var(--font-display); font-weight:500; font-size: 19px;
+    color: var(--navy); letter-spacing:-0.005em; text-align:left;
+    transition: color .2s ease;
+  }
+  .faq__q:hover{ color: var(--primary); }
+  .faq__icon{
+    flex-shrink:0; width:28px; height:28px; border-radius:50%;
+    border:1px solid var(--hairline); display:flex; align-items:center; justify-content:center;
+    transition: background .25s ease, border-color .25s, transform .35s var(--ease-out);
+  }
+  .faq__icon::before, .faq__icon::after{
+    content:""; position:absolute; background: var(--primary); border-radius: 1px;
+  }
+  .faq__icon{ position:relative; }
+  .faq__icon::before{ width:10px; height:1.5px; }
+  .faq__icon::after{ width:1.5px; height:10px; transition: transform .3s ease, opacity .2s ease; }
+  .faq__item.is-open .faq__icon{ background: var(--primary); border-color: var(--primary); transform: rotate(45deg); }
+  .faq__item.is-open .faq__icon::before, .faq__item.is-open .faq__icon::after{ background:#fff; }
+  .faq__a{
+    overflow:hidden; max-height: 0;
+    transition: max-height .45s var(--ease-out);
+  }
+  .faq__a-inner{ padding: 0 4px 26px; color: var(--text-muted); line-height: 1.75; font-size: 15.5px; font-weight:300; max-width: 70ch; }
+  .faq__a-inner p + p{ margin-top: 12px; }
+  .faq__item.is-open .faq__a, details.faq__item[open] .faq__a{ max-height: 500px; }
+  details.faq__item[open] .faq__icon{ background: var(--primary); border-color: var(--primary); transform: rotate(45deg); }
+  details.faq__item[open] .faq__icon::before, details.faq__item[open] .faq__icon::after{ background:#fff; }
+  details.faq__item summary{ list-style: none; }
+  details.faq__item summary::-webkit-details-marker{ display:none; }
+
+  /* mobile: stack, motion più leggera */
+  @media (max-width: 860px){
+    .v-panel{ padding: 50px 0; }
+    .v-panel__inner{ grid-template-columns: 1fr; gap: 8px; }
+    .v-panel:nth-of-type(even) .v-side{ order: 0; text-align: left; }
+    .v-panel:nth-of-type(even) .v-card{ order: 0; }
+    .v-bignum{ font-size: 120px; }
+    .v-card{
+      padding: 34px 26px 32px;
+      transform: translateX(40px);
+      filter: blur(2px);
+    }
+    .v-panel:nth-of-type(even) .v-card{ transform: translateX(40px); }
+  }
+
+  /* ============================================================
+     CTA chiusura
+     ============================================================ */
+  .cta-banner{
+    background: var(--navy);
+    color: #fff;
+    text-align:center;
+    padding: 120px 40px;
+  }
+  .cta-banner h2{
+    font-size: clamp(34px, 4.2vw, 52px);
+    line-height:1.1;
+    margin: 16px auto 22px;
+    max-width: 26ch;
+    color: #fff;
+    font-weight: 500;
+  }
+  .cta-banner h2 em{ color: var(--primary-light); font-style:italic; font-weight:500; }
+  .cta-banner p{
+    color: rgba(255,255,255,0.7);
+    max-width: 58ch;
+    margin: 0 auto 40px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height:1.7;
+  }
+</style>
+</head>
+<body data-screen-label="03 Servizi">
+
+<!-- =========================================================
+     NAV (solid because no dark hero)
+     ========================================================= -->
+<nav class="nav solid" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="logo" aria-label="Casa 2.0 — Home">
+      <img src="assets/logo.png" alt="Casa 2.0" />
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chi-siamo.html">Chi siamo</a></li>
+      <li><a href="servizi.html" class="active">Servizi</a></li>
+      <li><a href="properties.html">Immobili</a></li>
+      <li><a href="contattaci.html">Contattaci</a></li>
+    </ul>
+    <a href="investors.html" class="nav__lang" title="English version">EN</a>
+    <a href="valuta.html" class="btn nav__cta-desktop">Valutazione Gratuita</a>
+    <button class="nav__burger" id="burger" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav__overlay" id="nav-overlay" aria-hidden="true">
+  <button id="overlay-close" aria-label="Chiudi menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="chi-siamo.html">Chi siamo</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="properties.html">Immobili</a>
+  <a href="contattaci.html">Contattaci</a>
+  <a href="valuta.html" class="btn btn--lg">Valutazione Gratuita</a>
+</div>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+<header class="page-header">
+  <div class="container">
+    <span class="micro-label reveal">Cosa facciamo</span>
+    <h1 class="reveal" data-delay="1">I nostri <em>Servizi</em></h1>
+    <p class="lead reveal" data-delay="2">
+      Tre famiglie di servizi, una sola promessa: chiarezza, esperienza, presenza.
+      Scopri come Casa 2.0 ti accompagna in ogni fase.
+    </p>
+  </div>
+</header>
+
+<!-- =========================================================
+     VETRINA — 3 pannelli scroll
+     ========================================================= -->
+<main class="vetrina">
+
+  <!-- PANEL 01 — ACQUISTA -->
+  <section class="v-panel" id="acquista" data-num="01">
+    <div class="v-panel__inner">
+    <div class="v-side" aria-hidden="true"><span class="v-bignum">01</span><span class="v-kicker">Acquista</span></div>
+    <article class="v-card">
+      <span class="v-card__num">01</span>
+      <h2>Per chi acquista.</h2>
+      <p class="tagline">"Trovare la casa giusta, senza stress."</p>
+      <p>Consulenza immobiliare analitica per inquadrare le tue esigenze e trovare l'immobile perfetto. Rete con agenzie partner, supporto nel mutuo e in ogni aspetto burocratico. Siamo al tuo fianco dall'inizio alla firma.</p>
+      <ul class="v-card__list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Analisi delle esigenze e shortlist personalizzata</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Rete con agenzie partner a Tivoli, Guidonia e Roma Est</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Supporto mutuo, verifiche urbanistiche, rogito</span>
+        </li>
+      </ul>
+      <a class="v-card__cta" href="contattaci.html">
+        Parla con noi
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </article>
+    </div>
+  </section>
+
+  <!-- PANEL 02 — VENDE -->
+  <section class="v-panel" id="vende" data-num="02">
+    <div class="v-panel__inner">
+    <div class="v-side" aria-hidden="true"><span class="v-bignum">02</span><span class="v-kicker">Vende</span></div>
+    <article class="v-card">
+      <span class="v-card__num">02</span>
+      <h2>Per chi vende.</h2>
+      <p class="tagline">"Vendere al prezzo giusto, in tempi reali."</p>
+      <p>Piano marketing dedicato, home staging professionale, fotografia di qualità. Valutiamo gratuitamente e posizioniamo il tuo immobile sui migliori portali nazionali. Massima trasparenza su ogni trattativa.</p>
+      <ul class="v-card__list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Valutazione gratuita basata sui dati reali del mercato di Tivoli</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Home staging, fotografia professionale, virtual tour</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Report periodici sulle visite e sulle trattative</span>
+        </li>
+      </ul>
+      <a class="v-card__cta" href="contattaci.html">
+        Richiedi valutazione
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </article>
+    </div>
+  </section>
+
+  <!-- PANEL 03 — AFFITTA -->
+  <section class="v-panel" id="affitta" data-num="03">
+    <div class="v-panel__inner">
+    <div class="v-side" aria-hidden="true"><span class="v-bignum">03</span><span class="v-kicker">Affitta</span></div>
+    <article class="v-card">
+      <span class="v-card__num">03</span>
+      <h2>Per chi affitta.</h2>
+      <p class="tagline">"Affittare bene, senza pensieri."</p>
+      <p>Selezione di inquilini referenziati, supporto contrattuale completo, conformità alle normative vigenti. Gestiamo tutto noi, tu incassi serenamente.</p>
+      <ul class="v-card__list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Selezione e verifica referenze degli inquilini</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Contratti registrati, conformi alle normative</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Gestione canoni e supporto in caso di morosità</span>
+        </li>
+      </ul>
+      <a class="v-card__cta" href="contattaci.html">
+        Affidaci la gestione
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- CINEMA DIVIDER — chiusura emotiva dei servizi, prima del CTA -->
+<div class="cinema" id="cinema">
+  <div class="cinema__bg" aria-hidden="true"></div>
+  <div class="cinema__overlay" aria-hidden="true"></div>
+  <div class="cinema__grain" aria-hidden="true"></div>
+  <p class="cinema__caption">
+    <span class="small">— Tivoli —</span>
+    Tra le colline<br/>che hai sempre guardato.
+  </p>
+</div>
+
+<!-- =========================================================
+     FAQ — domande frequenti
+     ========================================================= -->
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="faq__head reveal">
+    <span class="micro-label">Domande frequenti</span>
+    <h2 id="faq-title">Le risposte che <em>cerchi</em>.</h2>
+    <p>Tutto quello che ci chiedono più spesso. Se ti rimane un dubbio, scrivici: rispondiamo entro 24 ore.</p>
+  </div>
+  <div class="faq__list reveal" data-delay="1">
+    <details class="faq__item">
+      <summary class="faq__q">La valutazione del mio immobile è davvero gratuita?<span class="faq__icon" aria-hidden="true"></span></summary>
+      <div class="faq__a"><div class="faq__a-inner"><p>Sì, sempre e senza obblighi. Veniamo noi a vedere la casa, analizziamo i dati reali del mercato di Tivoli, e ti diamo una stima onesta. Decidi tu se affidarci la vendita oppure tenere la stima per te.</p></div></div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__q">Quanto tempo ci vuole per vendere casa a Tivoli?<span class="faq__icon" aria-hidden="true"></span></summary>
+      <div class="faq__a"><div class="faq__a-inner"><p>Dipende dalla zona, dal prezzo di partenza e dallo stato dell'immobile. Per immobili posizionati al prezzo giusto, in zone centrali o ben servite (Tivoli centro, Villa Adriana, Stazione), la media è 3-6 mesi. Per zone meno richieste o immobili sovrastimati, può servire più tempo. Te lo diciamo onestamente in fase di valutazione.</p></div></div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__q">Quali costi devo aspettarmi se vendo con voi?<span class="faq__icon" aria-hidden="true"></span></summary>
+      <div class="faq__a"><div class="faq__a-inner"><p>La nostra provvigione si concorda in base al valore dell'immobile e al tipo di mandato. Non chiediamo costi fissi anticipati: ci paghi solo a vendita conclusa. Tutto è scritto chiaramente nel mandato.</p><p>Costi extra possibili (sempre con il tuo OK): home staging, fotografia professionale, virtual tour. Te li proponiamo solo se servono davvero per vendere meglio.</p></div></div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__q">In quali zone operate?<span class="faq__icon" aria-hidden="true"></span></summary>
+      <div class="faq__a"><div class="faq__a-inner"><p>La nostra base è Tivoli (centro storico, Villa Adriana, Tivoli Terme, Braschi, Empolitana). Operiamo anche su <strong>Castel Madama</strong>, <strong>Guidonia Montecelio</strong> (Villalba, Villanova), e zone limitrofe verso Roma Est.</p></div></div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__q">Pubblicate gli immobili su Immobiliare.it?<span class="faq__icon" aria-hidden="true"></span></summary>
+      <div class="faq__a"><div class="faq__a-inner"><p>Sì, tutti i nostri annunci sono pubblicati sul nostro <a href="https://www.immobiliare.it/agenzie-immobiliari/385414/casa-2-0-tivoli/" target="_blank" rel="noopener">profilo verificato su Immobiliare.it</a>, con foto professionali, planimetrie e descrizioni curate. Pubblichiamo anche su Idealista, Casa.it e Subito quando ha senso.</p></div></div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__q">Mi aiutate con il mutuo e la burocrazia?<span class="faq__icon" aria-hidden="true"></span></summary>
+      <div class="faq__a"><div class="faq__a-inner"><p>Sì, dalla A alla Z. Abbiamo una rete consolidata con banche locali e nazionali per i mutui (anche per cittadini esteri), notai di fiducia, geometri per le pratiche di conformità urbanistica. Ti accompagniamo dalla prima visita fino alla firma del rogito.</p></div></div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__q">Come tutelate i miei dati personali?<span class="faq__icon" aria-hidden="true"></span></summary>
+      <div class="faq__a"><div class="faq__a-inner"><p>I tuoi dati restano in agenzia e non vengono condivisi con terzi senza il tuo consenso esplicito. Trattiamo tutto secondo il GDPR. Leggi la nostra <a href="privacy.html">Privacy Policy</a> per i dettagli completi.</p></div></div>
+    </details>
+    <details class="faq__item">
+      <summary class="faq__q">Lavorate anche con investitori e clienti esteri?<span class="faq__icon" aria-hidden="true"></span></summary>
+      <div class="faq__a"><div class="faq__a-inner"><p>Sì. Abbiamo seguito acquirenti stranieri interessati a investimenti immobiliari nella zona di Tivoli, in particolare per immobili nel centro storico e nelle vicinanze di Villa Adriana e Villa d'Este. Possiamo assisterti in inglese per visite, valutazioni, e nell'intera procedura d'acquisto (codice fiscale, conto corrente, mutuo per non residenti).</p></div></div>
+    </details>
+  </div>
+</section>
+
+<!-- Schema.org FAQPage per rich snippet Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "La valutazione del mio immobile è davvero gratuita?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sì, sempre e senza obblighi. Veniamo noi a vedere la casa, analizziamo i dati reali del mercato di Tivoli, e ti diamo una stima onesta. Decidi tu se affidarci la vendita oppure tenere la stima per te." } },
+    { "@type": "Question", "name": "Quanto tempo ci vuole per vendere casa a Tivoli?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Per immobili posizionati al prezzo giusto, in zone centrali o ben servite, la media è 3-6 mesi. Per zone meno richieste o immobili sovrastimati, può servire più tempo." } },
+    { "@type": "Question", "name": "Quali costi devo aspettarmi se vendo con voi?",
+      "acceptedAnswer": { "@type": "Answer", "text": "La nostra provvigione si concorda in base al valore dell'immobile e al tipo di mandato. Non chiediamo costi fissi anticipati: ci paghi solo a vendita conclusa." } },
+    { "@type": "Question", "name": "In quali zone operate?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Tivoli, Castel Madama, Guidonia Montecelio (Villalba, Villanova), e zone limitrofe verso Roma Est." } },
+    { "@type": "Question", "name": "Pubblicate gli immobili su Immobiliare.it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sì, tutti i nostri annunci sono pubblicati sul profilo verificato Casa 2.0 su Immobiliare.it, con foto professionali, planimetrie e descrizioni curate." } },
+    { "@type": "Question", "name": "Mi aiutate con il mutuo e la burocrazia?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sì. Abbiamo una rete con banche, notai e geometri di fiducia. Ti accompagniamo dalla prima visita fino al rogito." } },
+    { "@type": "Question", "name": "Lavorate anche con investitori e clienti esteri?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sì. Abbiamo seguito acquirenti stranieri interessati a investimenti immobiliari nella zona di Tivoli. Possiamo assisterti in inglese per visite, valutazioni, e nell'intera procedura d'acquisto." } }
+  ]
+}
+</script>
+
+<!-- =========================================================
+     CTA finale
+     ========================================================= -->
+<section class="cta-banner">
+  <div class="container">
+    <span class="micro-label reveal" style="color:var(--red-accent); display:inline-block;">Iniziamo</span>
+    <h2 class="reveal">Un servizio su misura<br/>per la <em>tua storia</em>.</h2>
+    <p class="reveal" data-delay="1">Raccontaci cosa stai cercando. In 24 ore ti diciamo come possiamo aiutarti. Senza obblighi, senza fretta.</p>
+    <div class="reveal" data-delay="2" style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="contattaci.html" class="btn btn--lg">Contattaci ora</a>
+      <a href="https://wa.me/393388449030" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg">
+        Scrivici su WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><img src="assets/logo.png" alt="Casa 2.0" /></a>
+        <p class="footer__tag">"Non vendiamo solo mura, custodiamo sogni. Progettiamo con te la tua prossima, grande partenza."</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9V14.9H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3v-7H6V18.3h2.3zM7.2 10.3a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zm11.1 8v-4c0-2.1-1.1-3.1-2.6-3.1-1.2 0-1.8.7-2.1 1.1v-1H11.3v7h2.3v-3.9c0-1 .2-2 1.4-2 1.3 0 1.3 1.2 1.3 2v3.9h2.3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Naviga</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="servizi.html">Servizi</a></li>
+          <li><a href="properties.html">Immobili</a></li>
+          <li><a href="contattaci.html">Contattaci</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Servizi</h4>
+        <ul>
+          <li><a href="servizi.html#acquista">Per chi acquista</a></li>
+          <li><a href="servizi.html#vende">Per chi vende</a></li>
+          <li><a href="servizi.html#affitta">Per chi affitta</a></li>
+          <li><a href="valuta.html">Valutazione gratuita</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul>
+          <li>Via Colsereno 45, Tivoli (RM)</li>
+          <li><a href="tel:+393388449030">+39 338 844 9030</a></li>
+          <li><a href="mailto:info@casaduepuntozero.net">info@casaduepuntozero.net</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Casa 2.0 — Gael Ceravolo · Tivoli (RM)</span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="cookie.html">Cookie Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=11"></script>
+<script>
+  /* =========================================================
+     CINEMA DIVIDER — apertura clip-path su scroll
+     ========================================================= */
+  (function(){
+    const el = document.getElementById('cinema');
+    if(!el) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){ el.style.setProperty('--o','1'); return; }
+    let tick=false;
+    function upd(){
+      const r = el.getBoundingClientRect();
+      const vh = innerHeight;
+      // p inizia 0 quando il top entra dal basso, raggiunge 1 quando il top è a 30% dell'altezza viewport
+      const start = vh; const end = vh*0.3;
+      let p = (start - r.top) / (start - end);
+      p = Math.max(0, Math.min(1, p));
+      // easing easeOutCubic
+      p = 1 - Math.pow(1-p, 3);
+      el.style.setProperty('--o', p.toFixed(3));
+      tick=false;
+    }
+    window.addEventListener('scroll', ()=>{ if(!tick){tick=true; requestAnimationFrame(upd);} }, {passive:true});
+    window.addEventListener('resize', upd);
+    upd();
+  })();
+
+  /* =========================================================
+     Vetrina — IntersectionObserver per scale/blur/opacity
+     ========================================================= */
+  const panels = document.querySelectorAll('.v-panel');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting && e.intersectionRatio >= 0.30){
+          e.target.classList.add('active');
+        } else if (e.intersectionRatio < 0.10){
+          e.target.classList.remove('active');
+        }
+      });
+    }, { threshold: [0, 0.1, 0.3, 0.6] });
+    panels.forEach(p=>io.observe(p));
+  } else {
+    // fallback: tutte attive
+    panels.forEach(p=>p.classList.add('active'));
+  }
+</script>
+</body>
+</html>

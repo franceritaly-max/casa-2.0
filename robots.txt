@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /audit/
+Disallow: /uploads/
+
+Sitemap: https://www.casaduepuntozero.net/sitemap.xml

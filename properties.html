@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Immobili a Tivoli — Casa 2.0 · Vendita e Affitto</title>
+<meta name="description" content="Immobili in vendita e in affitto a Tivoli, Castel Madama e Guidonia. La selezione curata da Casa 2.0: appartamenti da €86.000. Sfoglia tutte le proposte." />
+<link rel="canonical" href="https://www.casaduepuntozero.net/properties.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:site_name" content="Casa 2.0" />
+<meta property="og:title" content="Immobili a Tivoli — Casa 2.0 · Vendita e Affitto" />
+<meta property="og:description" content="Casa 2.0 a Tivoli: appartamenti, ville, casali. Sfoglia tutte le proposte sul nostro profilo Immobiliare.it." />
+<meta property="og:image" content="https://www.casaduepuntozero.net/assets/tivoli/casa1-01.jpg" />
+<meta property="og:url" content="https://www.casaduepuntozero.net/properties.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#1A2A3C" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="assets/fonts/Zodiak-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css?v=23">
+
+<style>
+  /* Hero più corto */
+  .hero--properties{
+    min-height: 90vh;
+  }
+  .hero--properties h1{
+    font-size: clamp(40px, 5.6vw, 76px);
+    font-weight: 500;
+  }
+
+  /* ============================================================
+     CTA Immobiliare — la sezione dominante
+     ============================================================ */
+  .immo{
+    background: var(--paper);
+    padding: 130px 0 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .immo::before{
+    content:""; position:absolute;
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    top: -300px; left: -300px;
+    background: radial-gradient(circle, rgba(74,143,163,0.10), transparent 60%);
+    pointer-events:none;
+  }
+  .immo__inner{
+    max-width: 920px;
+    margin: 0 auto;
+    text-align:center;
+    padding: 0 40px;
+    position:relative;
+    z-index:1;
+  }
+  .immo .micro-label{
+    color: var(--primary);
+    display:inline-flex; align-items:center; gap:14px;
+    margin-bottom: 28px;
+  }
+  .immo .micro-label::before,
+  .immo .micro-label::after{
+    content:""; width:30px; height:1px; background: var(--primary); opacity:0.4;
+  }
+  .immo h2{
+    font-size: clamp(40px, 4.8vw, 64px);
+    color: var(--navy);
+    line-height:1.1;
+    margin: 0 0 24px;
+    font-weight: 500;
+    letter-spacing:-0.015em;
+  }
+  .immo h2 em{ color: var(--primary); font-style:italic; font-weight:500; }
+  .immo p.lead{
+    color: var(--text-muted);
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0 auto 50px;
+    max-width: 56ch;
+    font-weight: 300;
+  }
+
+  .immo__cta{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap: 16px;
+    padding: 26px 44px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: transform 280ms ease, box-shadow 280ms ease, background 280ms ease;
+    box-shadow: 0 20px 50px rgba(50,98,115,0.25);
+  }
+  .immo__cta:hover{
+    transform: translateY(-3px);
+    background: var(--primary-light);
+    box-shadow:
+      0 0 40px rgba(74,143,163,0.4),
+      0 24px 60px rgba(50,98,115,0.32);
+  }
+  .immo__cta::before{
+    content:""; position:absolute; inset:0;
+    border-radius: 100px;
+    background: var(--primary);
+    z-index:-1;
+    animation: ctaPulse 2.4s ease-out infinite;
+  }
+  @keyframes ctaPulse{
+    0%   { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.2); opacity: 0; }
+  }
+  .immo__cta svg.house{ width: 22px; height: 22px; }
+  .immo__cta svg.arrow{ width: 18px; height: 18px; transition: transform 250ms ease; }
+  .immo__cta:hover svg.arrow{ transform: translateX(5px); }
+
+  .immo__note{
+    margin-top: 24px;
+    color: var(--text-muted);
+    font-size: 13.5px;
+    letter-spacing: 0.02em;
+  }
+  .immo__note strong{ color: var(--navy); font-weight: 500;}
+
+  /* ============================================================
+     PORTAL LOGOS
+     ============================================================ */
+  .portals{
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 50px 40px;
+    background: #fff;
+  }
+  .portals__inner{
+    max-width: 1100px;
+    margin: 0 auto;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap: 28px;
+  }
+  .portals__label{
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .portals__row{
+    display:flex; align-items:center; gap: 50px;
+    flex-wrap: wrap;
+    font-family: var(--font-display);
+    color: var(--navy);
+    opacity: 0.6;
+  }
+  .portals__row span{
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* ============================================================
+     "Non hai trovato quello che cerchi?"
+     ============================================================ */
+  .not-found{
+    background: var(--primary);
+    color: #fff;
+    text-align:center;
+    padding: 130px 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .not-found::before{
+    content:""; position:absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    bottom: -300px; right: -300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%);
+    pointer-events:none;
+  }
+  .not-found h2{
+    font-size: clamp(36px, 4.6vw, 60px);
+    line-height:1.1;
+    margin: 0 auto 26px;
+    max-width: 22ch;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .not-found h2 em{ font-style: italic; font-weight:500; color: rgba(255,255,255,0.85); }
+  .not-found p{
+    max-width: 56ch;
+    margin: 0 auto 44px;
+    font-size: 17px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .not-found .btn{
+    background:#fff;
+    color: var(--primary);
+  }
+  .not-found .btn:hover{
+    background: var(--navy);
+    color: #fff;
+    box-shadow: 0 0 24px rgba(0,0,0,0.3);
+  }
+
+  /* ============================================================
+     MACBOOK SCROLL — intro cinematografica al portale
+     ============================================================ */
+  .mac-stage{
+    position:relative;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--white) 100%);
+    padding: 60px 0 40px;
+    min-height: 180vh;          /* dà spazio di scroll per l'apertura */
+  }
+  .mac-sticky{
+    position: sticky; top: 12vh;
+    height: 76vh;
+    display:flex; align-items:center; justify-content:center;
+    perspective: 1600px;
+  }
+  .mac-eyebrow{
+    position:absolute; top:0; left:50%; transform:translateX(-50%);
+    font-family: var(--font-body);
+    font-size: 11px; letter-spacing:0.36em; text-transform:uppercase;
+    color: var(--primary); font-weight:700;
+  }
+  .mac-eyebrow::before, .mac-eyebrow::after{
+    content:""; display:inline-block; width:30px; height:1px; background: var(--primary); opacity:.5; vertical-align: middle; margin: 0 14px;
+  }
+  .mac{
+    position:relative;
+    width: min(78vw, 1100px);
+    transform-style: preserve-3d;
+    transform-origin: center bottom;
+    /* trasformazioni guidate da --p (0..1) impostate da JS */
+    --p: 0;
+    --tilt: calc((1 - var(--p)) * 25deg);
+    --scale: calc(0.86 + var(--p) * 0.18);
+    transform: scale(var(--scale)) rotateX(var(--tilt));
+    transition: none;
+  }
+  .mac-screen{
+    position:relative;
+    border-radius: 14px;
+    background:#0E1116;
+    border: 1.5px solid #2a2f36;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25), inset 0 0 0 2px #0a0d11;
+    overflow:hidden;
+  }
+  .mac-screen::before{
+    content:""; position:absolute; top:8px; left:50%; transform:translateX(-50%);
+    width:80px; height:4px; border-radius:0 0 6px 6px; background:#0a0d11;
+    z-index:3;
+  }
+  .mac-screen-inner{
+    position:relative; margin: 18px 14px 14px;
+    aspect-ratio: 16/9;
+    border-radius: 6px;
+    overflow:hidden;
+    background:#000;
+  }
+  .mac-screen-inner img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transform-origin: center top;
+    transform: scale(calc(1 + (1 - var(--p)) * 0.06));
+    transition: transform .2s linear;
+  }
+  /* base e tastiera del MacBook */
+  .mac-base{
+    position:relative; margin: -2px auto 0;
+    width: 102%; left: -1%;
+    height: 22px;
+    background: linear-gradient(180deg, #cbd0d6 0%, #9aa0a8 60%, #6f7682 100%);
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 24px 40px rgba(0,0,0,0.15);
+  }
+  .mac-base::before{
+    content:""; position:absolute; top:6px; left:50%; transform: translateX(-50%);
+    width: 16%; height:4px; background: rgba(0,0,0,0.22); border-radius: 0 0 6px 6px;
+  }
+  .mac-stand{
+    width: 16%; height: 6px; margin: 0 auto;
+    background: linear-gradient(180deg, #b7bcc4, #8a909a);
+    border-radius: 0 0 8px 8px;
+  }
+
+  @media (max-width: 760px){
+    .mac-stage{ min-height: 130vh; padding: 40px 0 30px; }
+    .mac{ width: 92vw; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .mac-stage{ min-height: auto; }
+    .mac-sticky{ position:static; height:auto; }
+    .mac{ --p: 1; }
+  }
+
+  /* ============================================================
+     CASA 1 CAROUSEL — esempi di immobili (no claim falsi)
+     Scales frame ai bordi (Aceternity-style) + auto-scroll
+     ============================================================ */
+  .reel{
+    position:relative;
+    background: var(--paper);
+    padding: 30px 0 80px;
+  }
+  .reel__eyebrow{
+    text-align:center;
+    font-family: var(--font-body);
+    font-size: 11px; letter-spacing: 0.36em; text-transform:uppercase;
+    color: var(--text-muted); font-weight:600;
+    margin-bottom: 28px;
+  }
+  .reel__rail{
+    overflow:hidden;
+    padding: 24px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  }
+  .reel__track{
+    display:flex; gap: 32px;
+    width: max-content;
+    animation: reelSlide 38s linear infinite;
+  }
+  @keyframes reelSlide{ to{ transform: translateX(-50%); } }
+  .reel:hover .reel__track{ animation-play-state: paused; }
+  .reel__card{
+    position: relative;
+    flex: 0 0 auto;
+    width: min(560px, 70vw);
+    aspect-ratio: 3/2;
+  }
+  /* SCALES FRAME — 4 strisce di quadratini ai bordi (pattern Aceternity) */
+  .reel__card::before, .reel__card::after,
+  .reel__card .frame-y::before, .reel__card .frame-y::after{
+    content:""; position:absolute; pointer-events:none;
+    background-image:
+      linear-gradient(45deg, transparent 46%, var(--primary) 46% 54%, transparent 54%),
+      linear-gradient(-45deg, transparent 46%, var(--primary) 46% 54%, transparent 54%);
+    background-size: 8px 8px;
+    opacity: .55;
+  }
+  /* top/bottom */
+  .reel__card::before{ top:-12px; left:18px; right:18px; height:8px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent); }
+  .reel__card::after{ bottom:-12px; left:18px; right:18px; height:8px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 30%, #000 70%, transparent); }
+  /* left/right (via inner element) */
+  .reel__card .frame-y{ position:absolute; inset:0; pointer-events:none; }
+  .reel__card .frame-y::before{ left:-12px; top:18px; bottom:18px; width:8px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+            mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent); }
+  .reel__card .frame-y::after{ right:-12px; top:18px; bottom:18px; width:8px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
+            mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent); }
+
+  .reel__card img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    background:#fff;
+    box-shadow: 0 18px 50px rgba(26,42,60,0.12), 0 0 0 1px rgba(26,42,60,0.04);
+    transition: transform .8s ease;
+  }
+  .reel__card:hover img{ transform: scale(1.03); }
+  @media (max-width:560px){
+    .reel__card{ width: 84vw; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .reel__track{ animation: none; }
+  }
+
+  /* ============================================================
+     SELEZIONE — listings reali (price-led cards)
+     ============================================================ */
+  .listings{ background: var(--white); padding: 130px 0 110px; }
+  .listings__filters{
+    display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+    margin: 0 0 56px;
+  }
+  .lf-btn{
+    font-family: var(--font-body);
+    font-size: 11px; letter-spacing:0.16em; text-transform:uppercase; font-weight:600;
+    padding: 11px 22px; border-radius:100px;
+    border:1px solid var(--hairline); color: var(--text-muted);
+    background:#fff; cursor:pointer;
+    transition: all 220ms ease;
+  }
+  .lf-btn.active, .lf-btn:hover{ background: var(--navy); color:#fff; border-color: var(--navy); }
+  .listings__grid{
+    max-width: var(--max); margin:0 auto; padding:0 40px;
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .pcard{
+    display:flex; flex-direction:column;
+    background:#fff; border:1px solid var(--hairline); border-radius: var(--radius-lg, 18px);
+    padding: 30px 28px 26px; position:relative; overflow:hidden;
+    transition: transform 400ms var(--ease-out, cubic-bezier(.16,1,.3,1)), box-shadow 400ms ease, border-color 400ms ease;
+  }
+  .pcard::after{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+    background: var(--primary); transform: scaleY(0); transform-origin: top;
+    transition: transform 400ms var(--ease-out, ease);
+  }
+  .pcard:hover{ transform: translateY(-6px); box-shadow: 0 30px 60px rgba(26,42,60,0.12); border-color: transparent; }
+  .pcard:hover::after{ transform: scaleY(1); }
+  .pcard__top{ display:flex; align-items:center; gap:10px; margin-bottom: 22px; }
+  .pcard__badge{
+    font-size: 10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    padding: 5px 11px; border-radius:100px;
+  }
+  .pcard__badge--vendita{ background: rgba(50,98,115,0.10); color: var(--primary); }
+  .pcard__badge--affitto{ background: rgba(192,57,43,0.10); color: var(--red-accent); }
+  .pcard__type{ font-size: 11px; letter-spacing:0.14em; text-transform:uppercase; color: var(--text-muted); font-weight:600; }
+  .pcard__zone{
+    font-family: var(--font-display); font-size: 27px; color: var(--navy);
+    line-height:1.15; font-weight:500; letter-spacing:-0.01em; margin-bottom: 4px;
+  }
+  .pcard__addr{ font-size: 13px; color: var(--text-muted); font-weight:300; margin-bottom: 22px; }
+  .pcard__price{
+    font-family: var(--font-display); font-size: 38px; font-weight:600;
+    color: var(--primary); line-height:1; letter-spacing:-0.01em; margin-bottom: 22px;
+  }
+  .pcard__price .unit{ font-family: var(--font-body); font-size: 13px; font-weight:500; color: var(--text-muted); letter-spacing:0; }
+  .pcard__specs{
+    display:flex; flex-wrap:wrap; gap: 16px 22px;
+    padding-top: 20px; border-top:1px solid var(--hairline);
+    margin-top:auto;
+  }
+  .pcard__spec{ display:flex; align-items:center; gap:8px; font-size: 13px; color: var(--text-dark); }
+  .pcard__spec svg{ width:17px; height:17px; stroke: var(--primary); fill:none; stroke-width:1.7; }
+  .pcard__spec b{ font-weight:500; }
+  .pcard__link{
+    margin-top: 24px; display:inline-flex; align-items:center; gap:8px;
+    font-size: 11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color: var(--primary); transition: gap 200ms ease;
+  }
+  .pcard__link:hover{ gap: 14px; }
+  .pcard__link svg{ width:13px; height:13px; }
+  .pcard.is-hidden{ display:none; }
+  @media (max-width: 960px){ .listings__grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 620px){ .listings__grid{ grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-screen-label="04 Immobili">
+
+<!-- =========================================================
+     NAV
+     ========================================================= -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="logo" aria-label="Casa 2.0 — Home">
+      <img src="assets/logo.png" alt="Casa 2.0" />
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chi-siamo.html">Chi siamo</a></li>
+      <li><a href="servizi.html">Servizi</a></li>
+      <li><a href="properties.html" class="active">Immobili</a></li>
+      <li><a href="contattaci.html">Contattaci</a></li>
+    </ul>
+    <a href="investors.html" class="nav__lang" title="English version">EN</a>
+    <a href="valuta.html" class="btn nav__cta-desktop">Valutazione Gratuita</a>
+    <button class="nav__burger" id="burger" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav__overlay" id="nav-overlay" aria-hidden="true">
+  <button id="overlay-close" aria-label="Chiudi menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="chi-siamo.html">Chi siamo</a>
+  <a href="servizi.html">Servizi</a>
+  <a href="properties.html">Immobili</a>
+  <a href="contattaci.html">Contattaci</a>
+  <a href="valuta.html" class="btn btn--lg">Valutazione Gratuita</a>
+</div>
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<header class="hero hero--properties">
+  <div class="hero__bg" style="background-image:url('assets/tivoli-slide.jpg')" aria-hidden="true"></div>
+  <div class="hero__wash" aria-hidden="true"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <span class="hero__eyebrow micro-label hero__fade d1">
+      <span class="line"></span>
+      Le nostre proposte
+      <span class="line"></span>
+    </span>
+    <h1 class="hero__fade d2">
+      Le Nostre Proposte<br/>a <em>Tivoli</em>.
+    </h1>
+    <p class="hero__sub hero__fade d3">
+      La selezione curata da Casa 2.0. La tua prossima casa inizia da qui.
+    </p>
+  </div>
+
+  <a class="scroll-cue hero__fade d4" href="#selezione">
+    Sfoglia
+    <span class="stem"></span>
+  </a>
+</header>
+
+<!-- =========================================================
+     SELEZIONE — immobili reali
+     ========================================================= -->
+<section class="listings" id="selezione" hidden style="display:none">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="micro-label">La selezione</span>
+      <h2>Alcune delle nostre<br/><em>proposte attuali</em>.</h2>
+      <p class="lead">Una selezione tra vendite e affitti a Tivoli e dintorni. Per planimetrie, foto e visite, scrivici: ti rispondiamo in 24 ore.</p>
+    </div>
+  </div>
+
+  <div class="listings__filters reveal" data-delay="1">
+    <button class="lf-btn active" data-filter="all">Tutti</button>
+    <button class="lf-btn" data-filter="vendita">In vendita</button>
+    <button class="lf-btn" data-filter="affitto">In affitto</button>
+  </div>
+
+  <div class="listings__grid">
+    <!-- 1 -->
+    <article class="pcard reveal" data-status="vendita">
+      <div class="pcard__top"><span class="pcard__badge pcard__badge--vendita">Vendita</span><span class="pcard__type">Appartamento</span></div>
+      <h3 class="pcard__zone">Castel Madama</h3>
+      <p class="pcard__addr">Villaggio Acea · adiacente stazione</p>
+      <div class="pcard__price">€&nbsp;86.000</div>
+      <div class="pcard__specs">
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><b>95</b> mq</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 12V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M4 18v-3h16v3M6 8h5M13 8h5"/></svg><b>2</b> camere</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M6 12V5a2 2 0 0 1 4 0M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/></svg><b>2</b> bagni</span>
+      </div>
+      <a href="contattaci.html" class="pcard__link">Richiedi info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </article>
+
+    <!-- 2 -->
+    <article class="pcard reveal" data-status="vendita" data-delay="1">
+      <div class="pcard__top"><span class="pcard__badge pcard__badge--vendita">Vendita</span><span class="pcard__type">Appartamento</span></div>
+      <h3 class="pcard__zone">Tivoli · Empolitana</h3>
+      <p class="pcard__addr">Via Empolitana · zona centrale</p>
+      <div class="pcard__price">€&nbsp;138.000</div>
+      <div class="pcard__specs">
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><b>110</b> mq</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 12V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M4 18v-3h16v3M6 8h5M13 8h5"/></svg><b>2</b> camere</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M6 12V5a2 2 0 0 1 4 0M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/></svg><b>2</b> bagni</span>
+      </div>
+      <a href="contattaci.html" class="pcard__link">Richiedi info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </article>
+
+    <!-- 3 -->
+    <article class="pcard reveal" data-status="vendita" data-delay="2">
+      <div class="pcard__top"><span class="pcard__badge pcard__badge--vendita">Vendita</span><span class="pcard__type">Appartamento</span></div>
+      <h3 class="pcard__zone">Tivoli · Viale Trieste</h3>
+      <p class="pcard__addr">Adiacente stazione FS · con ascensore</p>
+      <div class="pcard__price">€&nbsp;149.000</div>
+      <div class="pcard__specs">
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><b>90</b> mq</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 12V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M4 18v-3h16v3M6 8h5M13 8h5"/></svg><b>2</b> camere</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M6 12V5a2 2 0 0 1 4 0M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/></svg><b>1</b> bagno</span>
+      </div>
+      <a href="contattaci.html" class="pcard__link">Richiedi info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </article>
+
+    <!-- 4 -->
+    <article class="pcard reveal" data-status="vendita">
+      <div class="pcard__top"><span class="pcard__badge pcard__badge--vendita">Vendita</span><span class="pcard__type">Appartamento</span></div>
+      <h3 class="pcard__zone">Castel Madama</h3>
+      <p class="pcard__addr">Via della Libertà · centralissimo</p>
+      <div class="pcard__price">€&nbsp;135.000</div>
+      <div class="pcard__specs">
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><b>90</b> mq</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 12V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M4 18v-3h16v3M6 8h5M13 8h5"/></svg><b>2</b> camere</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M6 12V5a2 2 0 0 1 4 0M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/></svg><b>1</b> bagno</span>
+      </div>
+      <a href="contattaci.html" class="pcard__link">Richiedi info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </article>
+
+    <!-- 5 -->
+    <article class="pcard reveal" data-status="vendita" data-delay="1">
+      <div class="pcard__top"><span class="pcard__badge pcard__badge--vendita">Vendita</span><span class="pcard__type">Appartamento</span></div>
+      <h3 class="pcard__zone">Guidonia · Villalba</h3>
+      <p class="pcard__addr">Via Fratelli Gualandi · termoautonomo</p>
+      <div class="pcard__price">€&nbsp;115.000</div>
+      <div class="pcard__specs">
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><b>90</b> mq</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 12V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M4 18v-3h16v3M6 8h5M13 8h5"/></svg><b>2</b> camere</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M5 11l1.5-5h11L19 11M5 11h14v6H5zM8 17v2M16 17v2"/></svg>posto auto</span>
+      </div>
+      <a href="contattaci.html" class="pcard__link">Richiedi info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </article>
+
+    <!-- 6 -->
+    <article class="pcard reveal" data-status="affitto" data-delay="2">
+      <div class="pcard__top"><span class="pcard__badge pcard__badge--affitto">Affitto</span><span class="pcard__type">Appartamento</span></div>
+      <h3 class="pcard__zone">Tivoli · Pza Nicodemi</h3>
+      <p class="pcard__addr">Pieno centro · arredato · su due livelli</p>
+      <div class="pcard__price">€&nbsp;700<span class="unit"> /mese</span></div>
+      <div class="pcard__specs">
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><b>115</b> mq</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 12V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M4 18v-3h16v3M6 8h5M13 8h5"/></svg><b>2</b> camere</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M6 12V5a2 2 0 0 1 4 0M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/></svg><b>2</b> bagni</span>
+      </div>
+      <a href="contattaci.html" class="pcard__link">Richiedi info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </article>
+
+    <!-- 7 -->
+    <article class="pcard reveal" data-status="affitto">
+      <div class="pcard__top"><span class="pcard__badge pcard__badge--affitto">Affitto</span><span class="pcard__type">Appartamento</span></div>
+      <h3 class="pcard__zone">Tivoli · Braschi</h3>
+      <p class="pcard__addr">Via dei Pini · contesto residenziale</p>
+      <div class="pcard__price">€&nbsp;680<span class="unit"> /mese</span></div>
+      <div class="pcard__specs">
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><b>110</b> mq</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 12V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M4 18v-3h16v3M6 8h5M13 8h5"/></svg><b>2</b> camere</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M6 12V5a2 2 0 0 1 4 0M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/></svg><b>1</b> bagno</span>
+      </div>
+      <a href="contattaci.html" class="pcard__link">Richiedi info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </article>
+
+    <!-- 8 -->
+    <article class="pcard reveal" data-status="affitto" data-delay="1">
+      <div class="pcard__top"><span class="pcard__badge pcard__badge--affitto">Affitto</span><span class="pcard__type">Appartamento</span></div>
+      <h3 class="pcard__zone">Tivoli · Trevio</h3>
+      <p class="pcard__addr">Centro pedonale · contratto 3+2</p>
+      <div class="pcard__price">€&nbsp;500<span class="unit"> /mese</span></div>
+      <div class="pcard__specs">
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><b>55</b> mq</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M3 12h18M5 12V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M4 18v-3h16v3M6 8h5M13 8h5"/></svg><b>1</b> camera</span>
+        <span class="pcard__spec"><svg viewBox="0 0 24 24"><path d="M6 12V5a2 2 0 0 1 4 0M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/></svg><b>1</b> bagno</span>
+      </div>
+      <a href="contattaci.html" class="pcard__link">Richiedi info <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </article>
+  </div>
+</section>
+
+<!-- =========================================================
+     MACBOOK SCROLL — intro al portale
+     ========================================================= -->
+<section class="mac-stage" id="mac-stage">
+  <div class="mac-sticky">
+    <span class="mac-eyebrow">Dentro il nostro studio digitale</span>
+    <div class="mac" id="mac">
+      <div class="mac-screen">
+        <div class="mac-screen-inner">
+          <img src="assets/screen-portal.jpg?v=2" alt="Anteprima portale immobiliare Casa 2.0" />
+        </div>
+      </div>
+      <div class="mac-base"></div>
+      <div class="mac-stand"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CASA 1 CAROUSEL — esempi di immobili
+     ========================================================= -->
+<section class="reel" aria-label="Esempi di immobili">
+  <p class="reel__eyebrow">— alcuni immobili che abbiamo trattato —</p>
+  <div class="reel__rail">
+    <div class="reel__track">
+      <div class="reel__card"><span class="frame-y"></span><img src="assets/tivoli/casa1-01.jpg" alt="" loading="lazy"></div>
+      <div class="reel__card"><span class="frame-y"></span><img src="assets/tivoli/casa1-02.jpg" alt="" loading="lazy"></div>
+      <div class="reel__card"><span class="frame-y"></span><img src="assets/tivoli/casa1-03.jpg" alt="" loading="lazy"></div>
+      <div class="reel__card"><span class="frame-y"></span><img src="assets/tivoli/casa1-01.jpg" alt="" loading="lazy" aria-hidden="true"></div>
+      <div class="reel__card"><span class="frame-y"></span><img src="assets/tivoli/casa1-02.jpg" alt="" loading="lazy" aria-hidden="true"></div>
+      <div class="reel__card"><span class="frame-y"></span><img src="assets/tivoli/casa1-03.jpg" alt="" loading="lazy" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     IMMOBILIARE.IT CTA
+     ========================================================= -->
+<section class="immo" id="immo">
+  <div class="immo__inner">
+    <span class="micro-label reveal">Tutti gli immobili</span>
+    <h2 class="reveal" data-delay="1">Sfoglia le proposte<br/>su <em>Immobiliare.it</em></h2>
+    <p class="lead reveal" data-delay="2">
+      Gestiamo tutti gli annunci direttamente su Immobiliare.it, la piattaforma più visitata d'Italia.
+      Foto professionali, planimetrie, virtual tour: tutto in un unico posto, sempre aggiornato.
+    </p>
+
+    <div class="reveal" data-delay="3">
+      <a href="https://www.immobiliare.it/agenzie-immobiliari/385414/casa-2-0-tivoli/" target="_blank" rel="noopener" class="immo__cta">
+        <svg class="house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2V11z"/>
+        </svg>
+        Sfoglia gli immobili su Immobiliare.it
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <p class="immo__note"><strong>Si apre in una nuova finestra.</strong> Filtri, mappa, contatti diretti all'agenzia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PORTAL ROW
+     ========================================================= -->
+<section class="portals">
+  <div class="portals__inner">
+    <span class="portals__label">Pubblicati anche su</span>
+    <div class="portals__row">
+      <span>idealista</span>
+      <span>Casa.it</span>
+      <span>Subito</span>
+      <span>Wikicasa</span>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     NON HAI TROVATO QUELLO CHE CERCHI
+     ========================================================= -->
+<section class="not-found">
+  <div class="container">
+    <span class="micro-label reveal" style="color:rgba(255,255,255,0.85); letter-spacing:0.22em;">Ricerca su misura</span>
+    <h2 class="reveal" data-delay="1" style="margin-top:24px;">Non hai trovato<br/>quello che <em>cerchi</em>?</h2>
+    <p class="reveal" data-delay="2">
+      Il mercato di Tivoli si muove velocemente. Molti immobili vengono venduti prima ancora di essere pubblicati online.
+      Contattaci, descrivi la tua casa ideale e saremo i tuoi occhi sul territorio.
+    </p>
+    <div class="reveal" data-delay="3">
+      <a href="contattaci.html" class="btn btn--lg">Affidaci la tua ricerca</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><img src="assets/logo.png" alt="Casa 2.0" /></a>
+        <p class="footer__tag">"Non vendiamo solo mura, custodiamo sogni. Progettiamo con te la tua prossima, grande partenza."</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9V14.9H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3v-7H6V18.3h2.3zM7.2 10.3a1.3 1.3 0 1 0 0-2.6 1.3 1.3 0 0 0 0 2.6zm11.1 8v-4c0-2.1-1.1-3.1-2.6-3.1-1.2 0-1.8.7-2.1 1.1v-1H11.3v7h2.3v-3.9c0-1 .2-2 1.4-2 1.3 0 1.3 1.2 1.3 2v3.9h2.3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Naviga</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="servizi.html">Servizi</a></li>
+          <li><a href="properties.html">Immobili</a></li>
+          <li><a href="contattaci.html">Contattaci</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Servizi</h4>
+        <ul>
+          <li><a href="servizi.html#acquista">Per chi acquista</a></li>
+          <li><a href="servizi.html#vende">Per chi vende</a></li>
+          <li><a href="servizi.html#affitta">Per chi affitta</a></li>
+          <li><a href="valuta.html">Valutazione gratuita</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul>
+          <li>Via Colsereno 45, Tivoli (RM)</li>
+          <li><a href="tel:+393388449030">+39 338 844 9030</a></li>
+          <li><a href="mailto:info@casaduepuntozero.net">info@casaduepuntozero.net</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Casa 2.0 — Gael Ceravolo · Tivoli (RM)</span>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="cookie.html">Cookie Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=11"></script>
+<script>
+  /* MacBook scroll — apertura cinematografica sopra al CTA portale */
+  (function(){
+    const stage = document.getElementById('mac-stage');
+    const mac   = document.getElementById('mac');
+    if(!stage || !mac) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){ mac.style.setProperty('--p','1'); return; }
+    let ticking=false;
+    function update(){
+      const r = stage.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // p=0 quando la stage entra in viewport dal basso, p=1 quando inizia a uscire
+      const total = r.height - vh;
+      let p = (-r.top) / total;
+      p = Math.max(0, Math.min(1, p));
+      // easing dolce
+      p = p<0.5 ? 2*p*p : 1 - Math.pow(-2*p+2,2)/2;
+      mac.style.setProperty('--p', p.toFixed(3));
+      ticking=false;
+    }
+    window.addEventListener('scroll', ()=>{ if(!ticking){ ticking=true; requestAnimationFrame(update); } }, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  /* Filtro immobili — Tutti / Vendita / Affitto */
+  (function(){
+    const btns  = document.querySelectorAll('.lf-btn');
+    const cards = document.querySelectorAll('.pcard');
+    btns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const f = btn.dataset.filter;
+        btns.forEach(b=>b.classList.toggle('active', b===btn));
+        cards.forEach(c=>{
+          const show = (f==='all') || (c.dataset.status===f);
+          c.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
